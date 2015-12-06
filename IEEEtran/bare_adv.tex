@@ -438,6 +438,9 @@ pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
 %\usepackage{breakurl}
 \usepackage{tabularx}
 \usepackage[font=footnotesize]{caption}
+\usepackage{array}
+\setlength\extrarowheight{2pt} 
+\usepackage{float}
 
 %%%%%%%%%%%%%%%%%%%%%%BEGIN DOC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -536,11 +539,16 @@ Computer Society, IEEE, IEEEtran, journal, \LaTeX, paper, template.
 
 \IEEEPARstart{V}{ision Zero} is the idea of having a traffic system which has no serious injuries or deaths.  The idea started almost 20 years ago in Sweden based on the idea that traffic related deaths \textit{can} be prevented so we as a society have the obligation to do so at any cost \cite{tingvall2000vision}.  Vision Zero presented several overarching principles such as ethics (Human life and health are paramount and take priority over mobility and other objectives of the road traffic system) and safety (road traffic systems should take account of human fallibility and minimize both the opportunities for errors and the harm done when they occur); and also actionable changes such as appropriate speed limits and road designs.
 
-Shortly after Bill de Blasio became the mayor of New York City in January 2014, he created New York City Vision Zero with the goal of eliminating traffic fatalities in the city by 2025.  It is comprised of dozens of different initiatives such as a citywide reduction of the speed limit from 30 miles per hour to 25 miles per hour, increasing enforcement of traffic laws and structural changes such as the installation speed humps.  As of now it has been almost two years since the plan was first started, and many of the initiatives are in progress or complete.  The city’s official report on the first year shows that fatalities were down in 2014 versus 2013 and uses that as evidence to claim that Vision Zero\cite{vzreport}.  But have New York City roads truly become safer and if so can we attribute that to vision zero?
+Shortly after Bill de Blasio became the mayor of New York City in January 2014, he created New York City Vision Zero with the goal of eliminating traffic fatalities in the city by 2025.  It is comprised of dozens of different initiatives such as a citywide reduction of the speed limit from 30 miles per hour to 25 miles per hour, increasing enforcement of traffic laws and structural changes such as the installation speed humps.  As of now it has been almost two years since the plan was first started, and many of the initiatives are in progress or complete.  The city’s official report on the first year shows that injuries and fatalities were down in 2014 versus 2013 and uses that as evidence to claim that Vision Zero is working\cite{vzreport}.  But have New York City roads truly become safer and if so can we attribute that to vision zero?
 
-Stuff about overal trend and juink
+Overall the number of traffic related injuries and fatalities in New York City have been dropping for decades, long before Vision Zero was put into effect.  Is there a difference in the trend before and after the start of the vision zero initiatives?  And if so can a year or two's worth of data be enough to conclude that the change is statistically significant?
+
+Due to the large number of initiatives that make up Vision Zero, seperating out the effect of each individual initiative would prove difficult.  Instead this paper will attack the problem from two angles.  First, taken as a whole, is the number of injuries or fatalities in the city dropping faster since Vision Zero than before?  And second, one particular initiative will be looked at - neighborhood slow zones.  Neighborhood slow zones are small areas of the city in which the speed limit is reduced to 20mph and there are additional traffic control such as speed humps.  The first one was created in 2011 and there are now about 20 of them throughout the city.  These provide well defined boundries in which many of the ideas being implemented city-wide for Vision Zero were tested which allows us to compare them to the city as a whole.
 
 \section{Literature Review}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
 
 \section{Data}
 
@@ -555,6 +563,17 @@ Overall the number of injuries is trending downward yet the number of accidents 
 	\includegraphics[width=\textwidth]{fig1.png}
 	\caption{Timelines of total number of accidents and number of injuries over time for the whole dataset, aggregated by month.  An OLS regression was run on each using the month as a categorical variable and the elapsed months since July 2012.  In call cases a statistically signficant overall trend was found with total accidents increasing and all injury counts besides cyclists decreasing as detailed in Table \ref{tab:timeline}.}\label{fig:timeline}
 \end{figure*}
+
+
+
+
+
+\subsection{Neighborhood Slow Zones}
+
+The New York City Department of Transportation provides the geographic boundries of all current neighborhood slow zones in both geoJSON and shapefile formats.  In this case the geoJSON format was used.  In addition to the geographic boundries, each record also contains the name of the slow zone and a year.  But this year is\textit{not} the year that the slow zone was put into place, instead it is the year that the plan was presented to the local community boards, which is not useful for our purpose.  Instead the year and month that each slowzone was put into place was compiled manually by the author based on new archives.  As such, it is likely error prone.  Appendix \ref{sec:appendixa} lists the dates used for this analysis.
+
+
+
 
 \begin{table*}[]
 \centering
@@ -571,11 +590,10 @@ Motorists Injured   & .900 & -4.734          & -8.900                 & -0.568  
 \end{tabular}
 \end{table*}
 
-\subsection{Neighborhood Slow Zones}
-
-The New York City Department of Transportation provides the geographic boundries of all current neighborhood slow zones in both geoJSON and shapefile formats.  In this case the geoJSON format was used.  In addition to 
 
 \section{Methodology}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 \section{Results}
 
@@ -583,124 +601,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 \section{Conclusion}
 These findings show that Vision Zero may be having an effect, but the results are not statistically significant.  But under the moral premise of Vision Zero, where lives should be saved at any cost, that might be enough to support the efforts.  HKDJUFLKDSFJ Rephrase this.
-
-
-
-
-
-
-
-
-\subsection{Subsection Heading Here}
-Subsection text here.
-
-% needed in second column of first page if using \IEEEpubid
-%\IEEEpubidadjcol
-
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
-
-
-% An example of a floating figure using the graphicx package.
-% Note that \label must occur AFTER (or within) \caption.
-% For figures, \caption should occur after the \includegraphics.
-% Note that IEEEtran v1.7 and later has special internal code that
-% is designed to preserve the operation of \label within \caption
-% even when the captionsoff option is in effect. However, because
-% of issues like this, it may be the safest practice to put all your
-% \label just after \caption rather than within \caption{}.
-%
-% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
-% option should be used if it is desired that the figures are to be
-% displayed while in draft mode.
-%
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=2.5in]{myfigure}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-%\caption{Simulation results for the network.}
-%\label{fig_sim}
-%\end{figure}
-
-% Note that the IEEE typically puts floats only at the top, even when this
-% results in a large percentage of a column being occupied by floats.
-% However, the Computer Society has been known to put floats at the bottom.
-
-
-% An example of a double column floating figure using two subfigures.
-% (The subfig.sty package must be loaded for this to work.)
-% The subfigure \label commands are set within each subfloat command,
-% and the \label for the overall figure must come after \caption.
-% \hfil is used as a separator to get equal spacing.
-% Watch out that the combined width of all the subfigures on a 
-% line do not exceed the text width or a line break will occur.
-%
-%\begin{figure*}[!t]
-%\centering
-%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
-%\label{fig_first_case}}
-%\hfil
-%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
-%\label{fig_second_case}}
-%\caption{Simulation results for the network.}
-%\label{fig_sim}
-%\end{figure*}
-%
-% Note that often IEEE papers with subfigures do not employ subfigure
-% captions (using the optional argument to \subfloat[]), but instead will
-% reference/describe all of them (a), (b), etc., within the main caption.
-% Be aware that for subfig.sty to generate the (a), (b), etc., subfigure
-% labels, the optional argument to \subfloat must be present. If a
-% subcaption is not desired, just leave its contents blank,
-% e.g., \subfloat[].
-
-
-% An example of a floating table. Note that, for IEEE style tables, the
-% \caption command should come BEFORE the table and, given that table
-% captions serve much like titles, are usually capitalized except for words
-% such as a, an, and, as, at, but, by, for, in, nor, of, on, or, the, to
-% and up, which are usually not capitalized unless they are the first or
-% last word of the caption. Table text will default to \footnotesize as
-% the IEEE normally uses this smaller font for tables.
-% The \label must come after \caption as always.
-%
-%\begin{table}[!t]
-%% increase table row spacing, adjust to taste
-%\renewcommand{\arraystretch}{1.3}
-% if using array.sty, it might be a good idea to tweak the value of
-% \extrarowheight as needed to properly center the text within the cells
-%\caption{An Example of a Table}
-%\label{table_example}
-%\centering
-%% Some packages, such as MDW tools, offer better commands for making tables
-%% than the plain LaTeX2e tabular which is used here.
-%\begin{tabular}{|c||c|}
-%\hline
-%One & Two\\
-%\hline
-%Three & Four\\
-%\hline
-%\end{tabular}
-%\end{table}
-
-
-% Note that the IEEE does not put floats in the very first column
-% - or typically anywhere on the first page for that matter. Also,
-% in-text middle ("here") positioning is typically not used, but it
-% is allowed and encouraged for Computer Society conferences (but
-% not Computer Society journals). Most IEEE journals/conferences use
-% top floats exclusively. 
-% Note that, LaTeX2e, unlike IEEE journals/conferences, places
-% footnotes above bottom floats. This can be corrected via the
-% \fnbelowfloat command of the stfloats package.
-
-
-
-
-
-
 
 
 
@@ -720,13 +620,41 @@ Subsubsection text here.
 
 
 \appendices
-\section{Proof of the First Zonklar Equation}
-Appendix one text goes here.
+\section{Slowzone Installation Dates}
+\label{sec:appendixa}
+\begin{table}[h!]
+\centering
 
-% you can choose not to have a title for an appendix
-% if you want by leaving the argument blank
-\section{}
-Appendix two text goes here.
+\caption*{Approximate year and month that the slowzone was installed.  Dates manually compiled by the author based on news archives. }
+
+\begin{tabular}{|l|l|}
+\hline
+                                  Name &  Date \\ \hline
+                          Claremont &  Nov 2011 \\ \hline
+                            MT Eden &  Jul 2012 \\ \hline
+                             Inwood &  Sep 2012 \\ \hline
+                        Eastchester &  Oct 2012 \\ \hline
+                          Riverdale &  Oct 2012 \\ \hline
+                        Boerum Hill &  Nov 2012 \\ \hline
+                         Baychester &  Dec 2012 \\ \hline
+                           Rosebank &  Feb 2013 \\ \hline
+                           Elmhurst &  Mar 2013 \\ \hline
+      Jackson Heights/East Elmhurst &  Apr 2013 \\ \hline
+           New Brighton / St George &  Jun 2013 \\ \hline
+                         Auburndale &  Jun 2013 \\ \hline
+                             Corona &  Jun 2013 \\ \hline
+                       Dongan Hills &  Sep 2013 \\ \hline
+                           Norwood &  Jun 2014 \\ \hline
+ Alphabet City Tompkins Square Park &  Aug 2014 \\ \hline
+                    Jackson Heights &  Sep 2014 \\ \hline
+         Sunnyside Gardens-Woodside &  Aug 2015 \\ \hline
+                          Sunnyside &  Aug 2015 \\ \hline
+                            Astoria &  Sep 2015 \\ \hline
+                   Prospect Heights &  Oct 2015 \\ \hline
+                   Brooklyn Heights &  Oct 2015 \\ \hline
+\end{tabular}
+\end{table}
+
 
 
 % use section* for acknowledgment
