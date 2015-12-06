@@ -1,0 +1,15 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdftex 2015.12.6)  6 DEC 2015 15:40
+entering extended mode
+**D:/Documents/workspace/civic_ps3/IEEEtran/vzreport.bib
+(D:/Documents/workspace/civic_ps3/IEEEtran/vzreport.bib
+! Undefined control sequence.
+l.3   howpublished = {\url
+                          {http://www.nyc.gov/html/visionzero/assets/downloa...
+
+? 
+! Emergency stop.
+l.3   howpublished = {\url
+                          {http://www.nyc.gov/html/visionzero/assets/downloa...
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!

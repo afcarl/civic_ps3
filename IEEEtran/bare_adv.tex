@@ -78,7 +78,7 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
+  \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
@@ -434,6 +434,13 @@ pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 
+\usepackage[hidelinks]{hyperref}
+%\usepackage{breakurl}
+\usepackage{tabularx}
+\usepackage[font=footnotesize]{caption}
+
+%%%%%%%%%%%%%%%%%%%%%%BEGIN DOC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \begin{document}
 
@@ -518,9 +525,69 @@ Computer Society, IEEE, IEEEtran, journal, \LaTeX, paper, template.
 % 
 % Here we have the typical use of a "T" for an initial drop letter
 % and "HIS" in caps to complete the first word.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%INTRODUCTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \IEEEPARstart{V}{ision Zero} is the idea of having a traffic system which has no serious injuries or deaths.  The idea started almost 20 years ago in Sweden based on the idea that traffic related deaths \textit{can} be prevented so we as a society have the obligation to do so at any cost \cite{tingvall2000vision}.  Vision Zero presented several overarching principles such as ethics (Human life and health are paramount and take priority over mobility and other objectives of the road traffic system) and safety (road traffic systems should take account of human fallibility and minimize both the opportunities for errors and the harm done when they occur); and also actionable changes such as appropriate speed limits and road designs.
 
-Shortly after Bill de Blasio became the mayor of New York City in January 2014, he created New York City Vision Zero with the goal of eliminating traffic fatalities in the city by 2025.  It is comprised of dozens of different initiatives such as a citywide reduction of the speed limit from 30 miles per hour to 25 miles per hour, increasing enforcement of traffic laws and structural changes such as the installation speed humps.  As of now it has been almost two years since the plan was first started, and many of the initiatives are in progress or complete.  The city’s official report on the first year shows that fatalities were down in 2014 versus 2013 and uses that as evidence to claim that Vision Zero .  But have New York City roads truly become safer and if so can we attribute that to vision zero?
+Shortly after Bill de Blasio became the mayor of New York City in January 2014, he created New York City Vision Zero with the goal of eliminating traffic fatalities in the city by 2025.  It is comprised of dozens of different initiatives such as a citywide reduction of the speed limit from 30 miles per hour to 25 miles per hour, increasing enforcement of traffic laws and structural changes such as the installation speed humps.  As of now it has been almost two years since the plan was first started, and many of the initiatives are in progress or complete.  The city’s official report on the first year shows that fatalities were down in 2014 versus 2013 and uses that as evidence to claim that Vision Zero\cite{vzreport}.  But have New York City roads truly become safer and if so can we attribute that to vision zero?
+
+Stuff about overal trend and juink
+
+\section{Literature Review}
+
+\section{Data}
+
+\subsection{Vehicle Collisions}
+
+The primary data used is the NYPD MotorVehicle Collisions dataset available on NYC Open Data\cite{crashdata}.  The dataset contains about 700,000 incident records from July 2012 through November 2015.  Of the 700,000 records, 600,000 are geolocated with latitude and longitude.  Each record has the number of injuries and fatalities for pedestrians, cyclists, motorists and in total.  It also contains information about the types of vehicles involved in the accidents, and contributing factors such as if the driver was drowsy or failed to yield right-of-way.
+
+Overall the number of injuries is trending downward yet the number of accidents is actually trending upwards. Both also exhibit a strong seasonal trend. This was assessed by running an Ordinary least squares (OLS) regression on the monthly accident and injury counts versus the number of months since July 2012 and the month as a categorical variable. Figure \ref{fig:timeline} shows the timeline of accidents and injures for the dataset and Table \ref{tab:timeline} has regression results. The fatality counts prooved too noisy to see any statistically significant patterns over this time frame.
+
+\begin{figure*}[h]
+	\centering
+	\includegraphics[width=\textwidth]{fig1.png}
+	\caption{Timelines of total number of accidents and number of injuries over time for the whole dataset, aggregated by month.  An OLS regression was run on each using the month as a categorical variable and the elapsed months since July 2012.  In call cases a statistically signficant overall trend was found with total accidents increasing and all injury counts besides cyclists decreasing as detailed in Table \ref{tab:timeline}.}\label{fig:timeline}
+\end{figure*}
+
+\begin{table*}[]
+\centering
+\caption{Results from OLS linear regression of the number of accidents and injuries per month for the entire timeframe of the dataset.  Regression was done on the month as a categorical variable and the number of months since July 2012.  The time coefficent gives a measure of how many much the monthly total is increasing or decreasing per month.  All results were found to be significant to a .05 significance level.  Total number of accidents and cyclists injured trended upwards since July 2012 while total number of injuries, pedestrians injured and motorists injured trended donwards. }
+\label{tab:timeline}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+                    & R2   & Time Coefficent & \multicolumn{2}{l|}{95\% Confidence Interval} & P-Value \\ \hline
+Accidents           & .845 & 43.191          & 28.638                 & 57.744               & 0.000   \\ \hline
+Persons Injured     & .890 & -8.519          & -14.202                & -2.836               & 0.005   \\ \hline
+Pedestrians Injured & .864 & -4.769          & -6.512                 & -3.027               & 0.000   \\ \hline
+Cyclists Injured    & .963 & 0.984           & 0.051                  & 1.917                & 0.039   \\ \hline
+Motorists Injured   & .900 & -4.734          & -8.900                 & -0.568               & 0.027   \\ \hline
+\end{tabular}
+\end{table*}
+
+\subsection{Neighborhood Slow Zones}
+
+The New York City Department of Transportation provides the geographic boundries of all current neighborhood slow zones in both geoJSON and shapefile formats.  In this case the geoJSON format was used.  In addition to 
+
+\section{Methodology}
+
+\section{Results}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\section{Conclusion}
+These findings show that Vision Zero may be having an effect, but the results are not statistically significant.  But under the moral premise of Vision Zero, where lives should be saved at any cost, that might be enough to support the efforts.  HKDJUFLKDSFJ Rephrase this.
+
+
+
+
+
 
 
 
@@ -632,8 +699,6 @@ Subsubsection text here.
 
 
 
-\section{Conclusion}
-These findings show that Vision Zero may be having an effect, but the results are not statistically significant.  But under the moral premise of Vision Zero, where lives should be saved at any cost, that might be enough to support the efforts.  HKDJUFLKDSFJ Rephrase this.
 
 
 
@@ -709,7 +774,7 @@ The authors would like to thank their cats Sweetie, Secondi, Kitten, Ubuntu, Col
 % (used to reserve space for the reference number labels box)
 
 \bibliographystyle{IEEEtran}
-\bibliography{tingvall2000vision}
+\bibliography{tingvall2000vision,vzreport,crashdata}
 
 
 \end{document}

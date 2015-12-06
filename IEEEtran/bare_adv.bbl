@@ -26,4 +26,14 @@ C.~Tingvall and N.~Haworth, ``Vision zero: an ethical approach to safety and
   mobility,'' in \emph{6th ITE International Conference Road Safety \& Traffic
   Enforcement: Beyond}, vol. 1999, 2000.
 
+\bibitem{vzreport}
+``Vision zero one year report,''
+  \url{http://www.nyc.gov/html/visionzero/assets/downloads/pdf/vision-zero-1-year-report.pdf},
+  accessed: 2015-12-05.
+
+\bibitem{crashdata}
+``Nypd motor vehicle collisions,''
+  \url{https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions/h9gi-nx95},
+  accessed: 2015-12-03.
+
 \end{thebibliography}
