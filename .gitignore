@@ -3,3 +3,9 @@
 **.pdf
 **.csv
 .ipynb_checkpoints
+**.log
+**.gz
+**.aux
+**.bbl
+**.blg
+**.out

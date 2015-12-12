@@ -545,13 +545,24 @@ Overall the number of traffic related injuries and fatalities in New York City h
 
 Due to the large number of initiatives that make up Vision Zero, seperating out the effect of each individual initiative would prove difficult.  Instead this paper will attack the problem from two angles.  First, taken as a whole, is the number of injuries or fatalities in the city dropping faster since Vision Zero than before?  And second, one particular initiative will be looked at - neighborhood slow zones.  Neighborhood slow zones are small areas of the city in which the speed limit is reduced to 20mph and there are additional traffic control such as speed humps.  The first one was created in 2011 and there are now about 20 of them throughout the city.  These provide well defined boundries in which many of the ideas being implemented city-wide for Vision Zero were tested which allows us to compare them to the city as a whole.
 
-\section{Literature Review}
+%%%%%%%%%%%%%%%%%%%%%%LIT REVIEW %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-There is considederable research into the relationship between speed limits and number of accidents, number of injuries and number of fatalities.  
+\section{Background}
 
-It is clear that "speeding" is one of the behaviors that leads to accidents.  But less clear whether increasing the speed limit has the same effect.  
+It is a given that a collision occuring at higher speeds will be more serious than one at lower speeds because the kinetic energy law says that a vehicle's kinetic energy goes up in relation to the velocity squared. A pedestrian hit at 40mph has more than an 80\% chance to be killed, while only about 40\% chance when the car is going 30mph and just a 5\% chance to be killed at 20mph\cite{fatalityrates}.
 
-It is more complicated by the inclusion of pedestrians.
+The relationship between speed and likelihood of a collision is less clear. Studying a speed limit change in Sweden from 90kph to 110kph, Nilsson found that not only severity, but also number of crashes followed the kinetic energy model, so that the number of crashes change exponetially with the average traffic speed, which changes with the speed limit\cite{aarts2006driving}.  
+
+A number of before and after studies for places such as Illinois\cite{rock1995impact} and Hong Kong\cite{wong2005would} also found similar increases to accidents, injuries and fatalities when speed limits were increased.
+
+On the other hand, Solomon, Cirillo and others have found that the biggest indicator of accidents is not the maximum speed or average road speed, but the amount of speed dispersion between vehicles, with vehicles traveling signficantly above or below the average speed causing more accidents\cite{aarts2006driving}.  This is due to speed dispersion leading to more interactions between vehicles, each of which could lead to a collision.  
+
+David Navon built a simulation to model the frequency of what he calls Accident Prone Interactions (APIs)  in relation to average traffic speed and found that at lower average speeds the number of the APIs was in increased compared to at higher speeds\cite{navon2003paradox}.  
+
+There is also the question of whether speed limit changes actually impact driver behavior.  Wilmot and Khanal summarized findings that the speed drivers go at is changed very little based on a change in the speed limit.  The speed they choose to drive is more influenced by what they personally feel is a safe speed and less on the law.  The average speed of a roadway changes about 25\% of the speed limit changed.  This would imply just a 1-2mph change for New York City following the speed limit decrease.  Furthermore, the results are mixed, but some studies have found that decreaseing the speed limit increases the speed dispersion, likely due to some drivers following the new limit while others continuing to drive as before\cite{wilmot1999effect}.
+
+The only thing that appears to be certain is that a lower \textit{actual} speed reduces the severity of collisions.  Beyond that there doesn't appear to be convincing evidence one way or the other that decreased speed limits decreases total number of accidents, injuries and fatalities.  It does from the models and findings of speed dispersion as a predictor of accidents, that because pedestrians can be thought of  as having essentially zero speed, that any decrease in the average speed of cars would lead to fewer pedestrian-vehicle collisions.  But pedestrian-vehicle collisions are only a portion of the total, so any change to decrease pedestrian collisions needs to be balanced with the impact to vehicle-vehicle collisions.
+
 
 
 \section{Data}
@@ -574,7 +585,7 @@ Overall the number of injuries is trending downward yet the number of accidents 
 
 \subsection{Neighborhood Slow Zones}
 
-The New York City Department of Transportation provides the geographic boundries of all current neighborhood slow zones in both geoJSON and shapefile formats.  In this case the geoJSON format was used.  In addition to the geographic boundries, each record also contains the name of the slow zone and a year.  But this year is\textit{not} the year that the slow zone was put into place, instead it is the year that the plan was presented to the local community boards, which is not useful for our purpose.  Instead the year and month that each slowzone was put into place was compiled manually by the author based on new archives.  As such, it is likely error prone.  Appendix \ref{sec:appendixa} lists the dates used for this analysis.
+The New York City Department of Transportation provides the geographic boundries of all current neighborhood slow zones in both geoJSON and shapefile formats\cite{slowzones}.  In this case the geoJSON format was used.  In addition to the geographic boundries, each record also contains the name of the slow zone and a year.  But this year is\textit{not} the year that the slow zone was put into place, instead it is the year that the plan was presented to the local community boards, which is not useful for our purpose.  Instead the year and month that each slowzone was put into place was compiled manually by the author based on new archives.  As such, it is likely error prone.  Appendix \ref{sec:appendixa} lists the dates used for this analysis.
 
 
 
@@ -706,7 +717,7 @@ The authors would like to thank their cats Sweetie, Secondi, Kitten, Ubuntu, Col
 % (used to reserve space for the reference number labels box)
 
 \bibliographystyle{IEEEtran}
-\bibliography{tingvall2000vision,vzreport,crashdata}
+\bibliography{tingvall2000vision,vzreport,crashdata,fatalityrates,slowzones,aarts2006driving,wilmot1999effect,rock1995impact,wong2005would,navon2003paradox}
 
 
 \end{document}
