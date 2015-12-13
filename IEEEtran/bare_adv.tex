@@ -630,31 +630,31 @@ Figures \ref{fig:totalana} and \ref{fig:injuryana} and Table \ref{tab:ana} summa
 
 \begin{table*}[]
 \centering
-\caption{Results from before and after analysis for total number of collisios and injuries by category.}
+\caption{Results from before and after regression analysis for total number of collisions and injuries by category. Linear Regression was run on each subset of the data and for each of the subintervals and the confidence intervals were compared from before to after for overlap.  In all cases, the 95\% confidence interval before overlaps with it after, meaning we can't conclude any change from before to after. }
 \label{tab:ana}
 \begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
                                      &            & Coefficient & R2    & \multicolumn{2}{l|}{95\% Confidence Interval} & P-Value \\ \hline
-\multirow{4}{*}{Total Collisions}    & Before Jan & 57.064      & 0.295 & 10.359                 & 103.769              & 0.020   \\ \cline{2-7} 
-                                     & After Jan  & 40.980      & 0.134 & -6.311                 & 88.270               & 0.086   \\ \cline{2-7} 
-                                     & Before Nov & 26.982      & 0.176 & 0.026                  & 3.425                & 50.540  \\ \cline{2-7} 
-                                     & After Nov  & 11.933      & 0.003 & -132.563               & 156.429              & 0.859   \\ \hline
-\multirow{4}{*}{Persons Injured}     & Before Jan & 15.628      & 0.201 & -0.868                 & 32.125               & 0.062   \\ \cline{2-7} 
-                                     & After Jan  & -6.782      & 0.072 & -17.848                & 4.284                & 0.216   \\ \cline{2-7} 
-                                     & Before Nov & -9.346      & 0.139 & -18.720                & 0.028                & 0.051   \\ \cline{2-7} 
-                                     & After Nov  & -6.778      & 0.017 & -41.051                & 27.496               & 0.672   \\ \hline
-\multirow{4}{*}{Pedestrians Injured} & Before Jan & 0.946       & 0.011 & -3.881                 & 5.772                & 0.683   \\ \cline{2-7} 
-                                     & After Jan  & -6.304      & 0.392 & -9.865                 & -2.743               & 0.001   \\ \cline{2-7} 
-                                     & Before Nov & -3.626      & 0.249 & -6.165                 & -1.087               & 0.249   \\ \cline{2-7} 
-                                     & After Nov  & -2.310      & 0.023 & -12.403                & 7.783                & 0.624   \\ \hline
-\multirow{4}{*}{Motorists Injured}   & Before Jan & 12.539      & 0.228 & 0.321                  & 24.757               & 0.045   \\ \cline{2-7} 
-                                     & After Jan  & -1.973      & 0.011 & -10.327                & 6.381                & 0.628   \\ \cline{2-7} 
-                                     & Before Nov & -6.720      & 0.125 & -13.879                & 0.438                & 0.065   \\ \cline{2-7} 
-                                     & After Nov  & -8.293      & 0.046 & -33.255                & 16.669               & 0.480   \\ \hline
-\multirow{4}{*}{Cyclists Injured}    & Before Jan & 2.147       & 0.124 & -0.873                 & 5.168                & 0.151   \\ \cline{2-7} 
-                                     & After Jan  & 1.514       & 0.136 & -0.217                 & 3.245                & 0.083   \\ \cline{2-7} 
-                                     & Before Nov & 0.989       & 0.080 & -0.365                 & 2.343                & 0.145   \\ \cline{2-7} 
-                                     & After Nov  & 3.8274      & 0.215 & -1.021                 & 8.675                & 0.110   \\ \hline
+\multirow{4}{*}{Total Collisions}    & Before January 2014 & 57.064      & 0.295 & 10.359                 & 103.769              & 0.020   \\ \cline{2-7} 
+                                     & During and After January 2014  & 40.980      & 0.134 & -6.311                 & 88.270               & 0.086   \\ \cline{2-7} 
+                                     & Before November 2014 & 26.982      & 0.176 & 0.026                  & 3.425                & 50.540  \\ \cline{2-7} 
+                                     & During and After November 2014  & 11.933      & 0.003 & -132.563               & 156.429              & 0.859   \\ \hline
+\multirow{4}{*}{Persons Injured}     & Before January 2014 & 15.628      & 0.201 & -0.868                 & 32.125               & 0.062   \\ \cline{2-7} 
+                                     & During and After January 2014  & -6.782      & 0.072 & -17.848                & 4.284                & 0.216   \\ \cline{2-7} 
+                                     & Before November 2014 & -9.346      & 0.139 & -18.720                & 0.028                & 0.051   \\ \cline{2-7} 
+                                     & During and After November 2014  & -6.778      & 0.017 & -41.051                & 27.496               & 0.672   \\ \hline
+\multirow{4}{*}{Pedestrians Injured} & Before January 2014 & 0.946       & 0.011 & -3.881                 & 5.772                & 0.683   \\ \cline{2-7} 
+                                     & During and After January 2014  & -6.304      & 0.392 & -9.865                 & -2.743               & 0.001   \\ \cline{2-7} 
+                                     & Before November 2014 & -3.626      & 0.249 & -6.165                 & -1.087               & 0.249   \\ \cline{2-7} 
+                                     & During and After November 2014  & -2.310      & 0.023 & -12.403                & 7.783                & 0.624   \\ \hline
+\multirow{4}{*}{Motorists Injured}   & Before January 2014 & 12.539      & 0.228 & 0.321                  & 24.757               & 0.045   \\ \cline{2-7} 
+                                     & During and After January 2014  & -1.973      & 0.011 & -10.327                & 6.381                & 0.628   \\ \cline{2-7} 
+                                     & Before November 2014 & -6.720      & 0.125 & -13.879                & 0.438                & 0.065   \\ \cline{2-7} 
+                                     & During and After November 2014  & -8.293      & 0.046 & -33.255                & 16.669               & 0.480   \\ \hline
+\multirow{4}{*}{Cyclists Injured}    & Before January 2014 & 2.147       & 0.124 & -0.873                 & 5.168                & 0.151   \\ \cline{2-7} 
+                                     & During and After January 2014  & 1.514       & 0.136 & -0.217                 & 3.245                & 0.083   \\ \cline{2-7} 
+                                     & Before November 2014 & 0.989       & 0.080 & -0.365                 & 2.343                & 0.145   \\ \cline{2-7} 
+                                     & During and After November 2014  & 3.8274      & 0.215 & -1.021                 & 8.675                & 0.110   \\ \hline
 \end{tabular}
 \end{table*}
 
