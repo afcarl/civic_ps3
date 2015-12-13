@@ -442,6 +442,11 @@ pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
 \setlength\extrarowheight{2pt} 
 \usepackage{float}
 \usepackage{multirow}
+\usepackage{afterpage}
+\usepackage{color}
+
+%\usepackage{natbib}
+\bibliographystyle{apalike}
 
 %%%%%%%%%%%%%%%%%%%%%%BEGIN DOC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -558,7 +563,7 @@ Due to the large number of initiatives that make up Vision Zero, seperating out 
 \label{tab:timeline}
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline
-                    & R2   & Time Coefficent & \multicolumn{2}{l|}{95\% Confidence Interval} & P-Value \\ \hline
+                    & R\textsuperscript{2}   & Time Coefficent & \multicolumn{2}{l|}{95\% Confidence Interval} & P-Value \\ \hline
 Accidents           & .845 & 43.191          & 28.638                 & 57.744               & 0.000   \\ \hline
 Persons Injured     & .890 & -8.519          & -14.202                & -2.836               & 0.005   \\ \hline
 Pedestrians Injured & .864 & -4.769          & -6.512                 & -3.027               & 0.000   \\ \hline
@@ -566,6 +571,10 @@ Cyclists Injured    & .963 & 0.984           & 0.051                  & 1.917   
 Motorists Injured   & .900 & -4.734          & -8.900                 & -0.568               & 0.027   \\ \hline
 \end{tabular}
 \end{table*}
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%LIT REVIEW %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -601,7 +610,11 @@ Overall the number of injuries is trending downward yet the number of accidents 
 
 The New York City Department of Transportation provides the geographic boundries of all current neighborhood slow zones in both geoJSON and shapefile formats\cite{slowzones}.  In this case the geoJSON format was used.  In addition to the geographic boundries, each record also contains the name of the slow zone and a year.  But this year is\textit{not} the year that the slow zone was put into place, instead it is the year that the plan was presented to the local community boards, which is not useful for our purpose.  Instead the year and month that each slowzone was put into place was compiled manually by the author based on new archives.  As such, it is likely error prone.  Appendix \ref{sec:appendixa} lists the dates used for this analysis.
 
-
+\begin{figure*}[p]
+	\centering
+	\includegraphics[width=\textwidth]{fig2.png}
+	\caption{Before and after analysis for total injuries and by type of injury.  Analyzed before and after both January 2014, when Vision Zero started, and November 2014, when the speed limit was reduced to 25mph.  Actual is the number of injuries controlled for month.  No significant change was found for any category for either the January or November partition to a .05 significance level.  Regression results are detailed in Table \ref{tab:ana}.}\label{fig:injuryana}
+\end{figure*}
 
 \section{Analysis}
 \subsection{City Wide Before and After Analysis}
@@ -616,17 +629,14 @@ For total accidents, and each category the data was aggregated by month, control
 
 Figures \ref{fig:totalana} and \ref{fig:injuryana} and Table \ref{tab:ana} summarize the results.  Split into the smaller time intervals, very few of the intervals had a statistically significant trend on their own, and none of the before intervals were disjoint from the after intervals.  Therefore we cannot conclude that either after the start of New York City Vision Zero, or after the speed limit decrease that there has been a stastically significant change in rate at which the total number of collisions or the number of injuries across the city as a whole is changing.  
 
+
+
 \begin{figure*}[h]
 	\centering
 	\includegraphics[width=\textwidth]{fig3.png}
 	\caption{Before and after analysis for total number of collisions.  Analyzed before and after both January 2014, when Vision Zero started, and November 2014, when the speed limit was reduced to 25mph.  Actual is the number of collisions controlled for month.  No significant change was found for any category for either the January or November partition to a .05 significance level.  Regression results are detailed in Table \ref{tab:ana}.}\label{fig:totalana}
 \end{figure*}
 
-\begin{figure*}[h]
-	\centering
-	\includegraphics[width=\textwidth]{fig2.png}
-	\caption{Before and after analysis for total injuries and by type of injury.  Analyzed before and after both January 2014, when Vision Zero started, and November 2014, when the speed limit was reduced to 25mph.  Actual is the number of injuries controlled for month.  No significant change was found for any category for either the January or November partition to a .05 significance level.  Regression results are detailed in Table \ref{tab:ana}.}\label{fig:injuryana}
-\end{figure*}
 
 \begin{table*}[]
 \centering
@@ -634,10 +644,10 @@ Figures \ref{fig:totalana} and \ref{fig:injuryana} and Table \ref{tab:ana} summa
 \label{tab:ana}
 \begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
-                                     &            & Coefficient & R2    & \multicolumn{2}{l|}{95\% Confidence Interval} & P-Value \\ \hline
+                                     &            & Coefficient & R\textsuperscript{2}    & \multicolumn{2}{l|}{95\% Confidence Interval} & P-Value \\ \hline
 \multirow{4}{*}{Total Collisions}    & Before January 2014 & 57.064      & 0.295 & 10.359                 & 103.769              & 0.020   \\ \cline{2-7} 
                                      & During and After January 2014  & 40.980      & 0.134 & -6.311                 & 88.270               & 0.086   \\ \cline{2-7} 
-                                     & Before November 2014 & 26.982      & 0.176 & 0.026                  & 3.425                & 50.540  \\ \cline{2-7} 
+                                     & Before November 2014 & 26.982      & 0.176 & 3.425                  & 50.540                & 0.026  \\ \cline{2-7} 
                                      & During and After November 2014  & 11.933      & 0.003 & -132.563               & 156.429              & 0.859   \\ \hline
 \multirow{4}{*}{Persons Injured}     & Before January 2014 & 15.628      & 0.201 & -0.868                 & 32.125               & 0.062   \\ \cline{2-7} 
                                      & During and After January 2014  & -6.782      & 0.072 & -17.848                & 4.284                & 0.216   \\ \cline{2-7} 
@@ -658,13 +668,135 @@ Figures \ref{fig:totalana} and \ref{fig:injuryana} and Table \ref{tab:ana} summa
 \end{tabular}
 \end{table*}
 
+\subsection{Slow Zone Analysis}
 
-\section{Results}
+\subsubsection{Methodology}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+First, all collisions which weren't geolocated with latitude and longitude were dropped, leaving about 600,000 collisions.  Then each one was geospatially joined with the boundries of the slow zones to see if it happened in one of the boundries.  If it did, the particular slowzone was noted.  Then using the approximate dates in \ref{sec:appendixa}, each of the collisions which happened in a slowzone was marked as happening either before or after the slowzone was established.
+
+Two slowzones, Claremont and Mt. Eden were both disregarded because they were established before the start of the collisions dataset in July 2012.  Therefore there was no way to account for the conditions before those slowzones were created.  For each other slowzone in which there was data for before and after the establishment of the slowzone, the G-Test was used to test whether there is a statistically significant difference between the distribution of incidents within the slowzone boundry before and after the slowzone was established with the distribution of the rest of the city before and after that same date.  This was done for total number of accidents as well as each injury category.  The results are in Tables \ref{tab:sz} and \ref{tab:sz2}.
+
+\subsubsection{Results}
+
+\begin{table*}[]
+\centering
+\caption{Poop }
+\label{tab:sz}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+Slow Zone                                      & Date Established            & Category            & SZ Before & SZ After & NYC Before & NYC After & P-Value  \\ \hline
+\multirow{4}{*}{Inwood}                        & \multirow{4}{*}{2012-09-01} & Total Collisions    & 28        & 480      & 29005      & 566648    & 0.575707 \\ \cline{3-8} 
+                                               &                             & Motorist Injuries   & 1         & 46       & 5842       & 100047    & 0.450159 \\ \cline{3-8} 
+                                               &                             & Pedestrian Injuries & 1         & 31       & 1544       & 32487     & 0.967243 \\ \cline{3-8} 
+                                               &                             & Person Injuries     & 2         & 89       & 8262       & 144663    & 0.217994 \\ \hline
+\multirow{3}{*}{Eastchester}                   & \multirow{3}{*}{2012-10-01} & Total Collisions    & 7         & 114      & 43101      & 552529    & 0.652047 \\ \cline{3-8} 
+                                               &                             & Motorist Injuries   & 2         & 20       & 8603       & 97295     & 0.818009 \\ \cline{3-8} 
+                                               &                             & Person Injuries     & 2         & 28       & 12241      & 140679    & 0.947413 \\ \hline
+Riverdale                                      & 2012-10-01                  & Total Collisions    & 11        & 101      & 43101      & 552529    & 0.401945 \\ \hline
+\multirow{5}{*}{Boerum Hill}                   & \multirow{5}{*}{2012-11-01} & Total Collisions    & 68        & 562      & 57389      & 538321    & 0.365990 \\ \cline{3-8} 
+                                               &                             & Cyclist Injuries    & 2         & 25       & 1570       & 11437     & 0.642564 \\ \cline{3-8} 
+                                               &                             & Motorist Injuries   & 10        & 61       & 11366      & 94539     & 0.485880 \\ \cline{3-8} 
+                                               &                             & Pedestrian Injuries & 1         & 29       & 3253       & 30775     & 0.354236 \\ \cline{3-8} 
+                                               &                             & Person Injuries     & 13        & 115      & 16189      & 136751    & 0.988850 \\ \hline
+\multirow{4}{*}{Baychester}                    & \multirow{4}{*}{2012-12-01} & Total Collisions    & 36        & 294      & 70858      & 524803    & 0.635991 \\ \cline{3-8} 
+                                               &                             & Motorist Injuries   & 14        & 88       & 13630      & 92273     & 0.912841 \\ \cline{3-8} 
+                                               &                             & Pedestrian Injuries & 1         & 13       & 4185       & 29834     & 0.853851 \\ \cline{3-8} 
+                                               &                             & Person Injuries     & 15        & 101      & 19640      & 133299    & 0.912017 \\ \hline
+\multirow{4}{*}{Rosebank}                      & \multirow{4}{*}{2013-02-01} & Total Collisions    & 15        & 87       & 98713      & 496872    & 0.705023 \\ \cline{3-8} 
+                                               &                             & Motorist Injuries   & 3         & 19       & 18456      & 87435     & 0.849214 \\ \cline{3-8} 
+                                               &                             & Pedestrian Injuries & 2         & 5        & 6368       & 27647     & 0.856901 \\ \cline{3-8} 
+                                               &                             & Person Injuries     & 5         & 25       & 27026      & 125898    & 0.924771 \\ \hline
+\multirow{5}{*}{Elmhurst}                      & \multirow{5}{*}{2013-03-01} & Total Collisions    & 202       & 858      & 110984     & 484596    & 0.754850 \\ \cline{3-8} 
+                                               &                             & Cyclist Injuries    & 15        & 49       & 2325       & 10696     & 0.333004 \\ \cline{3-8} 
+                                               &                             & Motorist Injuries   & 28        & 58       & 20500      & 85398     & \textcolor{red}{0.005563} \\ \cline{3-8} 
+                                               &                             & Pedestrian Injuries & 22        & 105      & 7254       & 26760     & 0.310928 \\ \cline{3-8} 
+                                               &                             & Person Injuries     & 65        & 212      & 30079      & 122854    & 0.138679 \\ \hline
+\multirow{5}{*}{Jackson Heights/East Elmhurst} & \multirow{5}{*}{2013-04-01} & Total Collisions    & 64        & 293      & 125058     & 470620    & 0.166860 \\ \cline{3-8} 
+                                               &                             & Cyclist Injuries    & 1         & 4        & 2506       & 10508     & 0.570629 \\ \cline{3-8} 
+                                               &                             & Motorist Injuries   & 16        & 74       & 23016      & 82893     & 0.425286 \\ \cline{3-8} 
+                                               &                             & Pedestrian Injuries & 4         & 13       & 8153       & 25879     & 0.810214 \\ \cline{3-8} 
+                                               &                             & Person Injuries     & 21        & 91       & 33675      & 119280    & 0.464377 \\ \hline
+\multirow{4}{*}{Auburndale}                    & \multirow{4}{*}{2013-06-01} & Total Collisions    & 42        & 85       & 154876     & 440668    & 0.094523 \\ \cline{3-8} 
+                                               &                             & Motorist Injuries   & 4         & 7        & 28924      & 76923     & 0.742132 \\ \cline{3-8} 
+                                               &                             & Pedestrian Injuries & 1         & 1        & 9864       & 24162     & 0.899549 \\ \cline{3-8} 
+                                               &                             & Person Injuries     & 5         & 9        & 41928      & 110958    & 0.697084 \\ \hline
+\multirow{5}{*}{Corona}                        & \multirow{5}{*}{2013-06-01} & Total Collisions    & 179       & 556      & 154876     & 440668    & 0.324627 \\ \cline{3-8} 
+                                               &                             & Cyclist Injuries    & 15        & 43       & 3140       & 9873      & 0.878201 \\ \cline{3-8} 
+                                               &                             & Motorist Injuries   & 15        & 76       & 28924      & 76923     & \textcolor{red}{0.020797} \\ \cline{3-8} 
+                                               &                             & Pedestrian Injuries & 21        & 58       & 9864       & 24162     & 0.727018 \\ \cline{3-8} 
+                                               &                             & Person Injuries     & 51        & 177      & 41928      & 110958    & 0.095138 \\ \hline
+\multirow{5}{*}{New Brighton / St George}      & \multirow{5}{*}{2013-06-01} & Total Collisions    & 81        & 258      & 154876     & 440668    & 0.405801 \\ \cline{3-8} 
+                                               &                             & Cyclist Injuries    & 1         & 5        & 3140       & 9873      & 0.960257 \\ \cline{3-8} 
+                                               &                             & Motorist Injuries   & 8         & 31       & 28924      & 76923     & 0.427581 \\ \cline{3-8} 
+                                               &                             & Pedestrian Injuries & 9         & 16       & 9864       & 24162     & 0.586950 \\ \cline{3-8} 
+                                               &                             & Person Injuries     & 18        & 52       & 41928      & 110958    & 0.851379 \\ \hline
+\multirow{4}{*}{Dongan Hills}                  & \multirow{4}{*}{2013-09-01} & Total Collisions    & 128       & 193      & 198949     & 396732    & \textcolor{red}{0.017909} \\ \cline{3-8} 
+                                               &                             & Motorist Injuries   & 18        & 37       & 37898      & 67951     & 0.736344 \\ \cline{3-8} 
+                                               &                             & Pedestrian Injuries & 4         & 9        & 12285      & 21739     & 0.910683 \\ \cline{3-8} 
+                                               &                             & Person Injuries     & 22        & 50       & 54683      & 98204     & 0.419288 \\ \hline
+\multirow{5}{*}{Norwood}                       & \multirow{5}{*}{2014-06-01} & Total Collisions    & 367       & 349      & 326781     & 268806    & 0.057583 \\ \cline{3-8} 
+                                               &                             & Cyclist Injuries    & 1         & 7        & 6762       & 6248      & 0.052058 \\ \cline{3-8} 
+                                               &                             & Motorist Injuries   & 69        & 46       & 59918      & 45944     & 0.520210 \\ \cline{3-8} 
+                                               &                             & Pedestrian Injuries & 29        & 17       & 20296      & 13719     & 0.751206 \\ \cline{3-8} 
+                                               &                             & Person Injuries     & 99        & 70       & 86976      & 65911     & 0.714070 \\ \hline
+\end{tabular}
+\end{table*}
+
+\begin{table*}[]
+\centering
+\caption{Table \ref{tab:sz} Continued}
+\label{tab:sz2}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+Slow Zone                                   & Date Established            & Category            & SZ Before & SZ After & NYC Before & NYC After & P-Value  \\ \hline
+\multirow{5}{*}{Alphabet City Tompkins}     & \multirow{5}{*}{2014-08-01} & Total Collisions    & 1117      & 710      & 356801     & 238711    & 0.296788 \\ \cline{3-8} 
+                                            &                             & Cyclist Injuries    & 93        & 46       & 7691       & 5317      & 0.073407 \\ \cline{3-8} 
+                                            &                             & Motorist Injuries   & 81        & 59       & 65534      & 40332     & 0.371908 \\ \cline{3-8} 
+                                            &                             & Pedestrian Injuries & 121       & 67       & 21859      & 12154     & 0.960796 \\ \cline{3-8} 
+                                            &                             & Person Injuries     & 295       & 172      & 95084      & 57803     & 0.698405 \\ \hline
+\multirow{5}{*}{Jackson Heights}            & \multirow{5}{*}{2014-09-01} & Total Collisions    & 1064      & 635      & 371079     & 224671    & 0.793639 \\ \cline{3-8} 
+                                            &                             & Cyclist Injuries    & 47        & 25       & 8157       & 4854      & 0.740453 \\ \cline{3-8} 
+                                            &                             & Motorist Injuries   & 112       & 72       & 68195      & 37712     & 0.360751 \\ \cline{3-8} 
+                                            &                             & Pedestrian Injuries & 81        & 45       & 22520      & 11514     & 0.725991 \\ \cline{3-8} 
+                                            &                             & Person Injuries     & 240       & 142      & 98872      & 54080     & 0.493199 \\ \hline
+\multirow{5}{*}{Sunnyside Gardens-Woodside} & \multirow{5}{*}{2015-08-01} & Total Collisions    & 611       & 58       & 533209     & 62301     & 0.136666 \\ \cline{3-8} 
+                                            &                             & Cyclist Injuries    & 28        & 3        & 11362      & 1651      & 0.812932 \\ \cline{3-8} 
+                                            &                             & Motorist Injuries   & 72        & 4        & 95363      & 10500     & 0.210980 \\ \cline{3-8} 
+                                            &                             & Pedestrian Injuries & 67        & 4        & 30883      & 3142      & 0.374625 \\ \cline{3-8} 
+                                            &                             & Person Injuries     & 167       & 11       & 137608     & 15293     & 0.094482 \\ \hline
+\multirow{5}{*}{Sunnyside}                  & \multirow{5}{*}{2015-08-01} & Total Collisions    & 912       & 70       & 533209     & 62301     & \textcolor{red}{0.000401} \\ \cline{3-8} 
+                                            &                             & Cyclist Injuries    & 17        & 5        & 11362      & 1651      & 0.309135 \\ \cline{3-8} 
+                                            &                             & Motorist Injuries   & 150       & 8        & 95363      & 10500     & \textcolor{red}{0.038299} \\ \cline{3-8} 
+                                            &                             & Pedestrian Injuries & 59        & 1        & 30883      & 3142      & \textcolor{red}{0.034966} \\ \cline{3-8} 
+                                            &                             & Person Injuries     & 226       & 14       & 137608     & 15293     & \textcolor{red}{0.028537} \\ \hline
+\multirow{5}{*}{Astoria}                    & \multirow{5}{*}{2015-09-01} & Total Collisions    & 851       & 68       & 549153     & 46395     & 0.701842 \\ \cline{3-8} 
+                                            &                             & Cyclist Injuries    & 38        & 4        & 11871      & 1137      & 0.924404 \\ \cline{3-8} 
+                                            &                             & Motorist Injuries   & 94        & 7        & 98183      & 7711      & 0.955614 \\ \cline{3-8} 
+                                            &                             & Pedestrian Injuries & 64        & 5        & 31543      & 2474      & 0.825554 \\ \cline{3-8} 
+                                            &                             & Person Injuries     & 196       & 16       & 141597     & 11322     & 0.958738 \\ \hline
+\multirow{4}{*}{Brooklyn Heights}           & \multirow{4}{*}{2015-10-01} & Total Collisions    & 1328      & 55       & 564801     & 30706     & \textcolor{red}{0.046077} \\ \cline{3-8} 
+                                            &                             & Motorist Injuries   & 127       & 2        & 100851     & 5038      & 0.089264 \\ \cline{3-8} 
+                                            &                             & Pedestrian Injuries & 49        & 1        & 32243      & 1764      & 0.451011 \\ \cline{3-8} 
+                                            &                             & Person Injuries     & 191       & 3        & 145436     & 7468      & \textcolor{red}{0.023053} \\ \hline
+\multirow{5}{*}{Prospect Heights}           & \multirow{5}{*}{2015-10-01} & Total Collisions    & 793       & 41       & 564801     & 30706     & 0.813087 \\ \cline{3-8} 
+                                            &                             & Cyclist Injuries    & 49        & 3        & 12342      & 666       & 0.917007 \\ \cline{3-8} 
+                                            &                             & Motorist Injuries   & 112       & 4        & 100851     & 5038      & 0.646852 \\ \cline{3-8} 
+                                            &                             & Pedestrian Injuries & 59        & 1        & 32243      & 1764      & 0.299220 \\ \cline{3-8} 
+                                            &                             & Person Injuries     & 220       & 8        & 145436     & 7468      & 0.399290 \\ \hline
+\end{tabular}
+\end{table*}
+
+This analysis assumes that a small section of the city, when no special traffic infrastrucutre changes are made to that section, should exhibit the same patterns and trends as the rest of the city as a whole.  But traffic accidents are as much a factor of the infrastructure and policy as they are a factor of usage.  So as a neighborhood changes in population or makeup, we would expect traffic accidents to be affected.  But unfortunately there is no data (at least publically available) that provides numbers into how road and sidewalk usage has changed, so that factor couldn't be controlled for.  This assumption could be tested to some extent by taking random geographic samples and seeing if they on average follow the same trend as the city as a whole.  Also, as noted previously, the actual dates for when the slowzones were created are not available.
+
+Given these limitations, there are still a couple of clear success stories that emerge - Sunnyside and Brooklyn Heights.  Both saw statistically significant drops in total collisions and total injuries after the establishment of the slowzones.  Sunside also saw a statistically significant drop in the number of pedestrian and motorist injuries.  Recall that a slowzone is actually composed of several different measures such as signage and speed humps and not just the decreased speed limit, so further research is necessary to determine what makes these two slowzones standout from the rest.
+
+Oddly, though not statisically significant, the number of cyclist injuries in Sunnyside is up compared to the rest of the city after the slowzone was created.  Anecdotaly, speed humps can cause increased danger to cyclists, so there could be a connection there. 
 
 \section{Conclusion}
 These findings show that Vision Zero may be having an effect, but the results are not statistically significant.  But under the moral premise of Vision Zero, where lives should be saved at any cost, that might be enough to support the efforts.  HKDJUFLKDSFJ Rephrase this.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
 
@@ -757,7 +889,7 @@ The authors would like to thank their cats Sweetie, Secondi, Kitten, Ubuntu, Col
 % http://mirror.ctan.org/biblio/bibtex/contrib/doc/
 % The IEEEtran BibTeX style support page is at:
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
+%\bibliographystyle{apalike}
 % argument is your BibTeX string definitions and bibliography database(s)
 %\bibliography{IEEEabrv,../bib/paper}
 %
@@ -765,7 +897,7 @@ The authors would like to thank their cats Sweetie, Secondi, Kitten, Ubuntu, Col
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
 
-\bibliographystyle{IEEEtran}
+
 \bibliography{tingvall2000vision,vzreport,crashdata,fatalityrates,slowzones,aarts2006driving,wilmot1999effect,rock1995impact,wong2005would,navon2003paradox}
 
 
