@@ -441,6 +441,7 @@ pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
 \usepackage{array}
 \setlength\extrarowheight{2pt} 
 \usepackage{float}
+\usepackage{multirow}
 
 %%%%%%%%%%%%%%%%%%%%%%BEGIN DOC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -545,6 +546,27 @@ Overall the number of traffic related injuries and fatalities in New York City h
 
 Due to the large number of initiatives that make up Vision Zero, seperating out the effect of each individual initiative would prove difficult.  Instead this paper will attack the problem from two angles.  First, taken as a whole, is the number of injuries or fatalities in the city dropping faster since Vision Zero than before?  And second, one particular initiative will be looked at - neighborhood slow zones.  Neighborhood slow zones are small areas of the city in which the speed limit is reduced to 20mph and there are additional traffic control such as speed humps.  The first one was created in 2011 and there are now about 20 of them throughout the city.  These provide well defined boundries in which many of the ideas being implemented city-wide for Vision Zero were tested which allows us to compare them to the city as a whole.
 
+\begin{figure*}[h]
+	\centering
+	\includegraphics[width=\textwidth]{fig1.png}
+	\caption{Timelines of total number of accidents and number of injuries over time for the whole dataset, aggregated by month.  An OLS regression was run on each using the month as a categorical variable and the elapsed months since July 2012.  In call cases a statistically signficant overall trend was found with total accidents increasing and all injury counts besides cyclists decreasing as detailed in Table \ref{tab:timeline}.}\label{fig:timeline}
+\end{figure*}
+
+\begin{table*}[]
+\centering
+\caption{Results from OLS linear regression of the number of accidents and injuries per month for the entire timeframe of the dataset.  Regression was done on the month as a categorical variable and the number of months since July 2012.  The time coefficent gives a measure of how many much the monthly total is increasing or decreasing per month.  All results were found to be significant to a .05 significance level.  Total number of accidents and cyclists injured trended upwards since July 2012 while total number of injuries, pedestrians injured and motorists injured trended donwards. }
+\label{tab:timeline}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+                    & R2   & Time Coefficent & \multicolumn{2}{l|}{95\% Confidence Interval} & P-Value \\ \hline
+Accidents           & .845 & 43.191          & 28.638                 & 57.744               & 0.000   \\ \hline
+Persons Injured     & .890 & -8.519          & -14.202                & -2.836               & 0.005   \\ \hline
+Pedestrians Injured & .864 & -4.769          & -6.512                 & -3.027               & 0.000   \\ \hline
+Cyclists Injured    & .963 & 0.984           & 0.051                  & 1.917                & 0.039   \\ \hline
+Motorists Injured   & .900 & -4.734          & -8.900                 & -0.568               & 0.027   \\ \hline
+\end{tabular}
+\end{table*}
+
 %%%%%%%%%%%%%%%%%%%%%%LIT REVIEW %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Background}
@@ -563,7 +585,7 @@ There is also the question of whether speed limit changes actually impact driver
 
 The only thing that appears to be certain is that a lower \textit{actual} speed reduces the severity of collisions.  Beyond that there doesn't appear to be convincing evidence one way or the other that decreased speed limits decreases total number of accidents, injuries and fatalities.  It does from the models and findings of speed dispersion as a predictor of accidents, that because pedestrians can be thought of  as having essentially zero speed, that any decrease in the average speed of cars would lead to fewer pedestrian-vehicle collisions.  But pedestrian-vehicle collisions are only a portion of the total, so any change to decrease pedestrian collisions needs to be balanced with the impact to vehicle-vehicle collisions.
 
-
+%%%%%%%%%%%%%%%%%DATA%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Data}
 
@@ -573,14 +595,6 @@ The primary data used is the NYPD MotorVehicle Collisions dataset available on N
 
 Overall the number of injuries is trending downward yet the number of accidents is actually trending upwards. Both also exhibit a strong seasonal trend. This was assessed by running an Ordinary least squares (OLS) regression on the monthly accident and injury counts versus the number of months since July 2012 and the month as a categorical variable. Figure \ref{fig:timeline} shows the timeline of accidents and injures for the dataset and Table \ref{tab:timeline} has regression results. The fatality counts prooved too noisy to see any statistically significant patterns over this time frame.
 
-\begin{figure*}[h]
-	\centering
-	\includegraphics[width=\textwidth]{fig1.png}
-	\caption{Timelines of total number of accidents and number of injuries over time for the whole dataset, aggregated by month.  An OLS regression was run on each using the month as a categorical variable and the elapsed months since July 2012.  In call cases a statistically signficant overall trend was found with total accidents increasing and all injury counts besides cyclists decreasing as detailed in Table \ref{tab:timeline}.}\label{fig:timeline}
-\end{figure*}
-
-
-
 
 
 \subsection{Neighborhood Slow Zones}
@@ -589,26 +603,61 @@ The New York City Department of Transportation provides the geographic boundries
 
 
 
+\section{Analysis}
+\subsection{City Wide Before and After Analysis}
+
+\subsubsection{Methodology}
+
+The total number of accidents and injuries by category (persons, pedestrians, cyclists and motorists) was analyzed before and after January 2014, when Vision Zero was first started, and before and after November 2014, when the citywide speed limit was decreased from 30mph to 25mph.  Therefore the four intervals we're interested in are July 2012 - January 2014, January 2014 - November 2015, July 2012 - November 2014 and November 2014 - November 2015.
+
+For total accidents, and each category the data was aggregated by month, controlled for the month to remove the seasonal effect described above, and then a linear regression was run on each subinterval decribed above.  The confidence intervals for the coefficents were compared before and after for overlap.  If the coefficient of regression before has a non-overlapping confidence interval from the confidence interval of the coefficient after, then there is a significant chance that there has been  change in the rate of change of number of accidents or injuries from before to after.  On the other hand, if the two confidence intervals overlap, then we can't conclude that there has been such a change.
+
+\subsubsection{Results}
+
+Figures \ref{fig:totalana} and \ref{fig:injuryana} and Table \ref{tab:ana} summarize the results.  Split into the smaller time intervals, very few of the intervals had a statistically significant trend on their own, and none of the before intervals were disjoint from the after intervals.  Therefore we cannot conclude that either after the start of New York City Vision Zero, or after the speed limit decrease that there has been a stastically significant change in rate at which the total number of collisions or the number of injuries across the city as a whole is changing.  
+
+\begin{figure*}[h]
+	\centering
+	\includegraphics[width=\textwidth]{fig3.png}
+	\caption{Before and after analysis for total number of collisions.  Analyzed before and after both January 2014, when Vision Zero started, and November 2014, when the speed limit was reduced to 25mph.  Actual is the number of collisions controlled for month.  No significant change was found for any category for either the January or November partition to a .05 significance level.  Regression results are detailed in Table \ref{tab:ana}.}\label{fig:totalana}
+\end{figure*}
+
+\begin{figure*}[h]
+	\centering
+	\includegraphics[width=\textwidth]{fig2.png}
+	\caption{Before and after analysis for total injuries and by type of injury.  Analyzed before and after both January 2014, when Vision Zero started, and November 2014, when the speed limit was reduced to 25mph.  Actual is the number of injuries controlled for month.  No significant change was found for any category for either the January or November partition to a .05 significance level.  Regression results are detailed in Table \ref{tab:ana}.}\label{fig:injuryana}
+\end{figure*}
 
 \begin{table*}[]
 \centering
-\caption{Results from OLS linear regression of the number of accidents and injuries per month for the entire timeframe of the dataset.  Regression was done on the month as a categorical variable and the number of months since July 2012.  The time coefficent gives a measure of how many much the monthly total is increasing or decreasing per month.  All results were found to be significant to a .05 significance level.  Total number of accidents and cyclists injured trended upwards since July 2012 while total number of injuries, pedestrians injured and motorists injured trended donwards. }
-\label{tab:timeline}
-\begin{tabular}{|l|l|l|l|l|l|}
+\caption{Results from before and after analysis for total number of collisios and injuries by category.}
+\label{tab:ana}
+\begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
-                    & R2   & Time Coefficent & \multicolumn{2}{l|}{95\% Confidence Interval} & P-Value \\ \hline
-Accidents           & .845 & 43.191          & 28.638                 & 57.744               & 0.000   \\ \hline
-Persons Injured     & .890 & -8.519          & -14.202                & -2.836               & 0.005   \\ \hline
-Pedestrians Injured & .864 & -4.769          & -6.512                 & -3.027               & 0.000   \\ \hline
-Cyclists Injured    & .963 & 0.984           & 0.051                  & 1.917                & 0.039   \\ \hline
-Motorists Injured   & .900 & -4.734          & -8.900                 & -0.568               & 0.027   \\ \hline
+                                     &            & Coefficient & R2    & \multicolumn{2}{l|}{95\% Confidence Interval} & P-Value \\ \hline
+\multirow{4}{*}{Total Collisions}    & Before Jan & 57.064      & 0.295 & 10.359                 & 103.769              & 0.020   \\ \cline{2-7} 
+                                     & After Jan  & 40.980      & 0.134 & -6.311                 & 88.270               & 0.086   \\ \cline{2-7} 
+                                     & Before Nov & 26.982      & 0.176 & 0.026                  & 3.425                & 50.540  \\ \cline{2-7} 
+                                     & After Nov  & 11.933      & 0.003 & -132.563               & 156.429              & 0.859   \\ \hline
+\multirow{4}{*}{Persons Injured}     & Before Jan & 15.628      & 0.201 & -0.868                 & 32.125               & 0.062   \\ \cline{2-7} 
+                                     & After Jan  & -6.782      & 0.072 & -17.848                & 4.284                & 0.216   \\ \cline{2-7} 
+                                     & Before Nov & -9.346      & 0.139 & -18.720                & 0.028                & 0.051   \\ \cline{2-7} 
+                                     & After Nov  & -6.778      & 0.017 & -41.051                & 27.496               & 0.672   \\ \hline
+\multirow{4}{*}{Pedestrians Injured} & Before Jan & 0.946       & 0.011 & -3.881                 & 5.772                & 0.683   \\ \cline{2-7} 
+                                     & After Jan  & -6.304      & 0.392 & -9.865                 & -2.743               & 0.001   \\ \cline{2-7} 
+                                     & Before Nov & -3.626      & 0.249 & -6.165                 & -1.087               & 0.249   \\ \cline{2-7} 
+                                     & After Nov  & -2.310      & 0.023 & -12.403                & 7.783                & 0.624   \\ \hline
+\multirow{4}{*}{Motorists Injured}   & Before Jan & 12.539      & 0.228 & 0.321                  & 24.757               & 0.045   \\ \cline{2-7} 
+                                     & After Jan  & -1.973      & 0.011 & -10.327                & 6.381                & 0.628   \\ \cline{2-7} 
+                                     & Before Nov & -6.720      & 0.125 & -13.879                & 0.438                & 0.065   \\ \cline{2-7} 
+                                     & After Nov  & -8.293      & 0.046 & -33.255                & 16.669               & 0.480   \\ \hline
+\multirow{4}{*}{Cyclists Injured}    & Before Jan & 2.147       & 0.124 & -0.873                 & 5.168                & 0.151   \\ \cline{2-7} 
+                                     & After Jan  & 1.514       & 0.136 & -0.217                 & 3.245                & 0.083   \\ \cline{2-7} 
+                                     & Before Nov & 0.989       & 0.080 & -0.365                 & 2.343                & 0.145   \\ \cline{2-7} 
+                                     & After Nov  & 3.8274      & 0.215 & -1.021                 & 8.675                & 0.110   \\ \hline
 \end{tabular}
 \end{table*}
 
-
-\section{Methodology}
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 \section{Results}
 
