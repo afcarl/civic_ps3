@@ -465,13 +465,12 @@ pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
 % in the abstract or keywords.
 \IEEEtitleabstractindextext{%
 \begin{abstract}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Vision Zero is the idea that serious traffic injures and fatalities can be prevented and thus we should prevent them at any cost.  In January 2014 the new Mayor of New York City, Bill de Blasio announced New York City Vision Zero with the goal of eliminating traffic fatalities in the city by 2025.  This paper examines the impact from January 2014 to November 2015 of Vision Zero on vehicle collisions and injuries and found that there is no statistically significant change after the start of Vision Zero.  The paper also examines one initiative in particular - neighborhood slow zones - and found that a few of them have been successful in reducing collisions and injuries.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Computer Society, IEEE, IEEEtran, journal, \LaTeX, paper, template.
+Vision Zero, Speed limits, Traffic accidents, Traffic safety
 \end{IEEEkeywords}}
 
 
@@ -545,25 +544,25 @@ Computer Society, IEEE, IEEEtran, journal, \LaTeX, paper, template.
 
 \IEEEPARstart{V}{ision Zero} is the idea of having a traffic system which has no serious injuries or deaths.  The idea started almost 20 years ago in Sweden based on the idea that traffic related deaths \textit{can} be prevented so we as a society have the obligation to do so at any cost \cite{tingvall2000vision}.  Vision Zero presented several overarching principles such as ethics (Human life and health are paramount and take priority over mobility and other objectives of the road traffic system) and safety (road traffic systems should take account of human fallibility and minimize both the opportunities for errors and the harm done when they occur); and also actionable changes such as appropriate speed limits and road designs.
 
-Shortly after Bill de Blasio became the mayor of New York City in January 2014, he created New York City Vision Zero with the goal of eliminating traffic fatalities in the city by 2025.  It is comprised of dozens of different initiatives such as a citywide reduction of the speed limit from 30 miles per hour to 25 miles per hour, increasing enforcement of traffic laws and structural changes such as the installation speed humps.  As of now it has been almost two years since the plan was first started, and many of the initiatives are in progress or complete.  The city’s official report on the first year shows that injuries and fatalities were down in 2014 versus 2013 and uses that as evidence to claim that Vision Zero is working\cite{vzreport}.  But have New York City roads truly become safer and if so can we attribute that to vision zero?
+Shortly after Bill de Blasio became the mayor of New York City in January 2014, he created New York City Vision Zero with the goal of eliminating traffic fatalities in the city by 2025.  It is comprised of dozens of different initiatives such as a citywide reduction of the speed limit from 30 miles per hour to 25 miles per hour, increasing enforcement of traffic laws and structural changes such as the installation speed humps.  As of now it has been almost two years since the plan was first started, and many of the initiatives are in progress or complete.  The city's official report on the first year shows that injuries and fatalities were down in 2014 versus 2013 and uses that as evidence to claim that Vision Zero is working\cite{vzreport}.  But have New York City roads truly become safer and if so can we attribute that to vision zero?
 
 Overall the number of traffic related injuries and fatalities in New York City have been dropping for decades, long before Vision Zero was put into effect.  Is there a difference in the trend before and after the start of the vision zero initiatives?  And if so can a year or two's worth of data be enough to conclude that the change is statistically significant?
 
-Due to the large number of initiatives that make up Vision Zero, seperating out the effect of each individual initiative would prove difficult.  Instead this paper will attack the problem from two angles.  First, taken as a whole, is the number of injuries or fatalities in the city dropping faster since Vision Zero than before?  And second, one particular initiative will be looked at - neighborhood slow zones.  Neighborhood slow zones are small areas of the city in which the speed limit is reduced to 20mph and there are additional traffic control such as speed humps.  The first one was created in 2011 and there are now about 20 of them throughout the city.  These provide well defined boundries in which many of the ideas being implemented city-wide for Vision Zero were tested which allows us to compare them to the city as a whole.
+Due to the large number of initiatives that make up Vision Zero, separating out the effect of each individual initiative would prove difficult.  Instead this paper will attack the problem from two angles.  First, taken as a whole, is the number of injuries or fatalities in the city dropping faster since Vision Zero than before?  And second, one particular initiative will be looked at - neighborhood slow zones.  Neighborhood slow zones are small areas of the city in which the speed limit is reduced to 20mph and there are additional traffic control such as speed humps.  The first one was created in 2011 and there are now about 20 of them throughout the city.  These provide well defined boundaries in which many of the ideas being implemented city-wide for Vision Zero were tested and this allows us to compare them to the city as a whole and see if there has been a marked improvement in those slow zones compared to the rest of the city.
 
 \begin{figure*}[h]
 	\centering
 	\includegraphics[width=\textwidth]{fig1.png}
-	\caption{Timelines of total number of accidents and number of injuries over time for the whole dataset, aggregated by month.  An OLS regression was run on each using the month as a categorical variable and the elapsed months since July 2012.  In call cases a statistically signficant overall trend was found with total accidents increasing and all injury counts besides cyclists decreasing as detailed in Table \ref{tab:timeline}.}\label{fig:timeline}
+	\caption{Timelines of total number of accidents and number of injuries over time for the whole dataset, aggregated by month.  An OLS regression was run on each using the month as a categorical variable and the elapsed months since July 2012.  The raw data is the solid line and the model's predictions are dashed.  In call cases a statistically significant overall trend was found with total accidents increasing and all injury counts besides cyclists decreasing as detailed in Table \ref{tab:timeline}.}\label{fig:timeline}
 \end{figure*}
 
 \begin{table*}[]
 \centering
-\caption{Results from OLS linear regression of the number of accidents and injuries per month for the entire timeframe of the dataset.  Regression was done on the month as a categorical variable and the number of months since July 2012.  The time coefficent gives a measure of how many much the monthly total is increasing or decreasing per month.  All results were found to be significant to a .05 significance level.  Total number of accidents and cyclists injured trended upwards since July 2012 while total number of injuries, pedestrians injured and motorists injured trended donwards. }
+\caption{Results from OLS linear regression of the number of accidents and injuries per month for the entire timeframe of the dataset.  Regression was done on the month as a categorical variable and the number of months since July 2012.  The time coefficient gives a measure of how much the monthly total is increasing or decreasing per month.  All results were found to be significant to a .05 significance level.  Total number of accidents and cyclists injured trended upwards since July 2012 while total number of injuries, pedestrians injured and motorists injured trended downwards. }
 \label{tab:timeline}
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline
-                    & R\textsuperscript{2}   & Time Coefficent & \multicolumn{2}{l|}{95\% Confidence Interval} & P-Value \\ \hline
+                    & R\textsuperscript{2}   & Time Coefficient & \multicolumn{2}{l|}{95\% Confidence Interval} & P-Value \\ \hline
 Accidents           & .845 & 43.191          & 28.638                 & 57.744               & 0.000   \\ \hline
 Persons Injured     & .890 & -8.519          & -14.202                & -2.836               & 0.005   \\ \hline
 Pedestrians Injured & .864 & -4.769          & -6.512                 & -3.027               & 0.000   \\ \hline
@@ -580,21 +579,32 @@ Motorists Injured   & .900 & -4.734          & -8.900                 & -0.568  
 
 \section{Background}
 
-It is a given that a collision occuring at higher speeds will be more serious than one at lower speeds because the kinetic energy law says that a vehicle's kinetic energy goes up in relation to the velocity squared. A pedestrian hit at 40mph has more than an 80\% chance to be killed, while only about 40\% chance when the car is going 30mph and just a 5\% chance to be killed at 20mph\cite{fatalityrates}.
+It is a given that a collision occurring at higher speeds will be more serious than one at lower speeds because the kinetic energy law (\ref{eq:ke}) says that a vehicle's kinetic energy goes up in relation to the velocity squared. 
 
-The relationship between speed and likelihood of a collision is less clear. Studying a speed limit change in Sweden from 90kph to 110kph, Nilsson found that not only severity, but also number of crashes followed the kinetic energy model, so that the number of crashes change exponetially with the average traffic speed, which changes with the speed limit\cite{aarts2006driving}.  
+\begin{equation}
+\label{eq:ke}
+E_{k} = \frac{1}{2} mv^2
+\end{equation}
+
+Therefore small increases to speed can have a large impact on the amount of energy the vehicle has, and imparts on a collision.  A pedestrian hit at 40mph has more than an 80\% chance to be killed, while only about 40\% chance to be killed when the car is going 30mph and just a 5\% chance to be killed at 20mph\cite{fatalityrates}.
+
+The relationship between speed and likelihood of a collision is less clear. Studying a speed limit change in Sweden from 90kph to 110kph, Nilsson found that not only severity, but also number of crashes followed the kinetic energy model, so that there is a power relation between the number of crashes and the average traffic speed, which changes with the speed limit (to an extent)\cite{aarts2006driving}.  
 
 A number of before and after studies for places such as Illinois\cite{rock1995impact} and Hong Kong\cite{wong2005would} also found similar increases to accidents, injuries and fatalities when speed limits were increased.
 
-On the other hand, Solomon, Cirillo and others have found that the biggest indicator of accidents is not the maximum speed or average road speed, but the amount of speed dispersion between vehicles, with vehicles traveling signficantly above or below the average speed causing more accidents\cite{aarts2006driving}.  This is due to speed dispersion leading to more interactions between vehicles, each of which could lead to a collision.  
+On the other hand, Solomon, Cirillo and others have found that the biggest indicator of accidents is not the maximum speed or average road speed, but the amount of speed dispersion between vehicles, with vehicles travelling significantly above or below the average speed causing more accidents\cite{aarts2006driving}.  This is due to speed dispersion leading to more interactions between vehicles, each of which could lead to a collision.  
 
-David Navon built a simulation to model the frequency of what he calls Accident Prone Interactions (APIs)  in relation to average traffic speed and found that at lower average speeds the number of the APIs was in increased compared to at higher speeds\cite{navon2003paradox}.  
+David Navon built a simulation to model the frequency of what he calls Accident Prone Interactions (APIs)  in relation to average traffic speed and found that at lower average speeds there was greater speed dispersion amongst vehicles as compared to at higher average speeds, thus the number of the APIs was in increased\cite{navon2003paradox}.  
 
-There is also the question of whether speed limit changes actually impact driver behavior.  Wilmot and Khanal summarized findings that the speed drivers go at is changed very little based on a change in the speed limit.  The speed they choose to drive is more influenced by what they personally feel is a safe speed and less on the law.  The average speed of a roadway changes about 25\% of the speed limit changed.  This would imply just a 1-2mph change for New York City following the speed limit decrease.  Furthermore, the results are mixed, but some studies have found that decreaseing the speed limit increases the speed dispersion, likely due to some drivers following the new limit while others continuing to drive as before\cite{wilmot1999effect}.
+There is also the question of whether speed limit changes actually impact driver behaviour.  Wilmot and Khanal summarized findings that speed limits changes have very little impact on the speed drivers drive at.  The speed they choose to drive is more influenced by what they personally feel is a safe speed and less on the posted speed limit.  The average speed of a roadway changes by about 25\% of a speed limit changed.  This would imply just a 1-2mph change for New York City following the speed limit decrease.  Furthermore, the results are mixed, but some studies have found that decreasing the speed limit increases the speed dispersion, likely due to some drivers following the new limit while others continuing to drive as before\cite{wilmot1999effect}.
 
-The only thing that appears to be certain is that a lower \textit{actual} speed reduces the severity of collisions.  Beyond that there doesn't appear to be convincing evidence one way or the other that decreased speed limits decreases total number of accidents, injuries and fatalities.  It does from the models and findings of speed dispersion as a predictor of accidents, that because pedestrians can be thought of  as having essentially zero speed, that any decrease in the average speed of cars would lead to fewer pedestrian-vehicle collisions.  But pedestrian-vehicle collisions are only a portion of the total, so any change to decrease pedestrian collisions needs to be balanced with the impact to vehicle-vehicle collisions.
+The only thing that appears to be certain is that a lower \textit{actual} speed reduces the severity of collisions.  Beyond that there doesn't appear to be convincing evidence one way or the other that decreased speed limits decreases total number of accidents, injuries and fatalities.  It does follow from the models and findings of speed dispersion as a predictor of accidents, that because pedestrians can be thought of  as having essentially zero speed, that any decrease in the average speed of cars would lead to fewer pedestrian-vehicle collisions.  But pedestrian-vehicle collisions are only a portion of the total, so any change to decrease pedestrian collisions needs to be balanced with the impact to vehicle-vehicle collisions.
+
+But as far as vehicle-vehicle collisions, it's not clear what sort of change we should expect.  If the average speed does lower by 5mph with the speed limit change, and it doesn't create more speed dispersion, then it could reduce collisions.  On the other hand, while some people may reduce their speeds, average speed may not decrease much at all due to driver behavior, thus leading to more speed dispersion and more collisions.  
 
 %%%%%%%%%%%%%%%%%DATA%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 \section{Data}
 
@@ -602,34 +612,19 @@ The only thing that appears to be certain is that a lower \textit{actual} speed 
 
 The primary data used is the NYPD MotorVehicle Collisions dataset available on NYC Open Data\cite{crashdata}.  The dataset contains about 700,000 incident records from July 2012 through November 2015.  Of the 700,000 records, 600,000 are geolocated with latitude and longitude.  Each record has the number of injuries and fatalities for pedestrians, cyclists, motorists and in total.  It also contains information about the types of vehicles involved in the accidents, and contributing factors such as if the driver was drowsy or failed to yield right-of-way.
 
-Overall the number of injuries is trending downward yet the number of accidents is actually trending upwards. Both also exhibit a strong seasonal trend. This was assessed by running an Ordinary least squares (OLS) regression on the monthly accident and injury counts versus the number of months since July 2012 and the month as a categorical variable. Figure \ref{fig:timeline} shows the timeline of accidents and injures for the dataset and Table \ref{tab:timeline} has regression results. The fatality counts prooved too noisy to see any statistically significant patterns over this time frame.
+Overall the number of injuries is trending downward yet the number of accidents is actually trending upwards. Both also exhibit a strong seasonal trend. This was assessed by running an ordinary least squares (OLS) regression on the monthly accident and injury counts versus the time since July 2012 and the month as a categorical variable. Figure \ref{fig:timeline} shows the timeline of accidents and injures for the dataset and Table \ref{tab:timeline} has the regression results. The fatality counts proved too noisy to see any statistically significant patterns over this time frame, so for the following analysis, only total number of collisions and injuries will be used.
 
 
 
 \subsection{Neighborhood Slow Zones}
 
-The New York City Department of Transportation provides the geographic boundries of all current neighborhood slow zones in both geoJSON and shapefile formats\cite{slowzones}.  In this case the geoJSON format was used.  In addition to the geographic boundries, each record also contains the name of the slow zone and a year.  But this year is\textit{not} the year that the slow zone was put into place, instead it is the year that the plan was presented to the local community boards, which is not useful for our purpose.  Instead the year and month that each slowzone was put into place was compiled manually by the author based on new archives.  As such, it is likely error prone.  Appendix \ref{sec:appendixa} lists the dates used for this analysis.
+The New York City Department of Transportation provides the geographic boundaries of all current neighborhood slow zones in both geoJSON and shapefile formats\cite{slowzones}.  In this case the geoJSON format was used.  In addition to the geographic boundaries, each record also contains the name of the slow zone and a year.  But this year is \textit{not} the year that the slow zone was put into place, instead it is the year that the plan was presented to the local community boards, which is not useful for our purpose.  Instead the year and month that each slow zone  was created was compiled manually by the author based on new archives.  As such, it is likely error prone.  Appendix \ref{sec:appendixa} lists the dates used for this paper's analysis.
 
 \begin{figure*}[p]
 	\centering
 	\includegraphics[width=\textwidth]{fig2.png}
 	\caption{Before and after analysis for total injuries and by type of injury.  Analyzed before and after both January 2014, when Vision Zero started, and November 2014, when the speed limit was reduced to 25mph.  Actual is the number of injuries controlled for month.  No significant change was found for any category for either the January or November partition to a .05 significance level.  Regression results are detailed in Table \ref{tab:ana}.}\label{fig:injuryana}
 \end{figure*}
-
-\section{Analysis}
-\subsection{City Wide Before and After Analysis}
-
-\subsubsection{Methodology}
-
-The total number of accidents and injuries by category (persons, pedestrians, cyclists and motorists) was analyzed before and after January 2014, when Vision Zero was first started, and before and after November 2014, when the citywide speed limit was decreased from 30mph to 25mph.  Therefore the four intervals we're interested in are July 2012 - January 2014, January 2014 - November 2015, July 2012 - November 2014 and November 2014 - November 2015.
-
-For total accidents, and each category the data was aggregated by month, controlled for the month to remove the seasonal effect described above, and then a linear regression was run on each subinterval decribed above.  The confidence intervals for the coefficents were compared before and after for overlap.  If the coefficient of regression before has a non-overlapping confidence interval from the confidence interval of the coefficient after, then there is a significant chance that there has been  change in the rate of change of number of accidents or injuries from before to after.  On the other hand, if the two confidence intervals overlap, then we can't conclude that there has been such a change.
-
-\subsubsection{Results}
-
-Figures \ref{fig:totalana} and \ref{fig:injuryana} and Table \ref{tab:ana} summarize the results.  Split into the smaller time intervals, very few of the intervals had a statistically significant trend on their own, and none of the before intervals were disjoint from the after intervals.  Therefore we cannot conclude that either after the start of New York City Vision Zero, or after the speed limit decrease that there has been a stastically significant change in rate at which the total number of collisions or the number of injuries across the city as a whole is changing.  
-
-
 
 \begin{figure*}[h]
 	\centering
@@ -640,7 +635,7 @@ Figures \ref{fig:totalana} and \ref{fig:injuryana} and Table \ref{tab:ana} summa
 
 \begin{table*}[]
 \centering
-\caption{Results from before and after regression analysis for total number of collisions and injuries by category. Linear Regression was run on each subset of the data and for each of the subintervals and the confidence intervals were compared from before to after for overlap.  In all cases, the 95\% confidence interval before overlaps with it after, meaning we can't conclude any change from before to after. }
+\caption{Results from before and after regression analysis for total number of collisions and injuries by category. Linear Regression was run on each subset of the data and for each of the subintervals and the confidence intervals were compared from before to after for overlap.  In all cases, the 95\% confidence interval before overlaps with the interval after, meaning we can't conclude any change from before to after. }
 \label{tab:ana}
 \begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
@@ -668,16 +663,20 @@ Figures \ref{fig:totalana} and \ref{fig:injuryana} and Table \ref{tab:ana} summa
 \end{tabular}
 \end{table*}
 
-\subsection{Slow Zone Analysis}
+\section{Analysis}
+\subsection{City Wide Before and After Analysis}
 
 \subsubsection{Methodology}
 
+The total number of accidents and injuries by category (persons, pedestrians, cyclists and motorists) was analyzed before and after January 2014, when Vision Zero was first started, and before and after November 2014, when the citywide speed limit was decreased from 30mph to 25mph.  Therefore the four intervals we're interested in are July 2012 - January 2014, January 2014 - November 2015, July 2012 - November 2014 and November 2014 - November 2015.
 
-First, all collisions which weren't geolocated with latitude and longitude were dropped, leaving about 600,000 collisions.  Then each one was geospatially joined with the boundries of the slow zones to see if it happened in one of the boundries.  If it did, the particular slowzone was noted.  Then using the approximate dates in \ref{sec:appendixa}, each of the collisions which happened in a slowzone was marked as happening either before or after the slowzone was established.
-
-Two slowzones, Claremont and Mt. Eden were both disregarded because they were established before the start of the collisions dataset in July 2012.  Therefore there was no way to account for the conditions before those slowzones were created.  For each other slowzone in which there was data for before and after the establishment of the slowzone, the G-Test was used to test whether there is a statistically significant difference between the distribution of incidents within the slowzone boundry before and after the slowzone was established with the distribution of the rest of the city before and after that same date.  This was done for total number of accidents as well as each injury category.  The results are in Tables \ref{tab:sz} and \ref{tab:sz2}.
+For total accidents, and each category the data was aggregated by month, controlled for the month to remove the seasonal effect described above, and then a linear regression was run on each subinterval described above.  The confidence intervals for the coefficients were compared before and after for overlap.  If the coefficient of regression before has a non-overlapping confidence interval from the confidence interval of the coefficient after, then there is a significant chance that there has been  change in the rate of change of number of accidents or injuries from before to after.  On the other hand, if the two confidence intervals overlap, then we can't conclude that there has been such a change.
 
 \subsubsection{Results}
+
+Figures \ref{fig:injuryana} and \ref{fig:totalana} and Table \ref{tab:ana} summarize the results.  Split into the smaller time intervals, very few of the intervals had a statistically significant trend on their own, and none of the before intervals were disjoint from the after intervals.  Therefore we cannot conclude that either after the start of New York City Vision Zero, or after the speed limit decrease that there has been a statistically significant change in rate at which the total number of collisions or the number of injuries across the city as a whole is changing.  
+
+Of all the post Vision Zero intervals, the only one we see have statistically significant value by itself is the number of pedestrians injured after January 2014, which matched our expectations that, at the very least, any decrease in the speed would reduce pedestrian-vehicle collisions, even if the impact on vehicle-vehicle collisions is unclear.  Yet even though that interval is itself statistically significant, its confidence interval still overlaps with the regression result of pedestrian injuries before January 2014, so we can't conclude that it has changed.
 
 \begin{table*}[]
 \centering
@@ -787,20 +786,38 @@ Slow Zone                                   & Date Established            & Cate
 \end{tabular}
 \end{table*}
 
-This analysis assumes that a small section of the city, when no special traffic infrastrucutre changes are made to that section, should exhibit the same patterns and trends as the rest of the city as a whole.  But traffic accidents are as much a factor of the infrastructure and policy as they are a factor of usage.  So as a neighborhood changes in population or makeup, we would expect traffic accidents to be affected.  But unfortunately there is no data (at least publically available) that provides numbers into how road and sidewalk usage has changed, so that factor couldn't be controlled for.  This assumption could be tested to some extent by taking random geographic samples and seeing if they on average follow the same trend as the city as a whole.  Also, as noted previously, the actual dates for when the slowzones were created are not available.
 
-Given these limitations, there are still a couple of clear success stories that emerge - Sunnyside and Brooklyn Heights.  Both saw statistically significant drops in total collisions and total injuries after the establishment of the slowzones.  Sunside also saw a statistically significant drop in the number of pedestrian and motorist injuries.  Recall that a slowzone is actually composed of several different measures such as signage and speed humps and not just the decreased speed limit, so further research is necessary to determine what makes these two slowzones standout from the rest.
 
-Oddly, though not statisically significant, the number of cyclist injuries in Sunnyside is up compared to the rest of the city after the slowzone was created.  Anecdotaly, speed humps can cause increased danger to cyclists, so there could be a connection there. 
+\subsection{Slow Zone Analysis}
+
+\subsubsection{Methodology}
+
+
+First, all collisions which weren't geolocated with latitude and longitude were dropped, leaving about 600,000 collisions.  Then each one was geospatially joined with the boundaries of the slow zones to see if it happened in one of the boundaries.  If it did, the particular slow zone  was noted.  Then using the approximate dates in Appendix \ref{sec:appendixa}, each of the collisions which happened in a slow zone  was marked as happening either before or after the slow zone  was established.
+
+Two slow zones, Claremont and Mount Eden were both disregarded because they were established before the start of the collisions dataset in July 2012.  Therefore there was no way to account for the conditions before those slow zones were created.  For each other slow zone in which there was non-zero data before and after the establishment of the slow zone, the G-test was used to test whether there is a statistically significant difference between the distribution of incidents within the slow zone boundary before and after the slow zone was established with the distribution of the rest of the city before and after that same date.  This was done for total number of accidents as well as each injury category.  A p-value of less than .05 would indicate that the change in the slow zone is statistically significantly different than the change to the city as a whole, but won't by itself indicate whether it is an increase or decrease as compared to the rest of the city.  The results are in Tables \ref{tab:sz} and \ref{tab:sz2}.
+
+\subsubsection{Results}
+
+
+This analysis assumes that a small section of the city, when no special traffic infrastructure changes are made to that section, should exhibit the same patterns and trends as the rest of the city as a whole.  But traffic accidents are as much a factor of the infrastructure and policy as they are a factor of usage.  So as a neighborhood changes in population or make-up, we would expect traffic accidents to be affected.  But unfortunately there is no data (at least publicly available) that provides numbers on how road and sidewalk usage has changed, so that couldn't be controlled for.  This assumption could be tested to some extent by taking random geographic samples from the city and seeing if they on average follow the same trend as the city as a whole, but that was not done for this analysis.  Also, as noted previously, the actual dates for when the slow zones were created are not available, so the numbers could have significant error.
+
+Given these limitations, there are still a couple of clear success stories that emerge - Sunnyside and Brooklyn Heights.  Both saw statistically significant drops in total collisions and total injuries after the establishment of the slow zones.  Sunnyside also saw a statistically significant drop in the number of pedestrian and motorist injuries.  Recall that a slow zone is actually composed of several different measures such as signage and speed humps and not just the decreased speed limit, so further research is necessary to determine what makes these two slow zones stand out from the rest.
+
+Oddly, though not statistically significant, the number of cyclist injuries in Sunnyside is up compared to the rest of the city after the slow zone  was created.  Anecdotally, speed humps can cause increased danger to cyclists, so further research is warranted to see if there could be a connection there. 
 
 \section{Conclusion}
-At the whole city level, we can't conclude that the New York City Vision Zero initiatves are working.  It is clear that the number of injuries and fatalities are indeed falling, but they have been falling for years before the start of Vision Zero.  And we don't yet have enough data to be able to reach a statistically significant answer as to whether they are now falling faster (or slower) than they had been before.  Given this, it is misleading for Mayor De Blasio to claim that Vision Zero is working.  Fortunately the DOT agreed, stating earlier this year that "there wasn’t enough data yet to gauge the effectiveness of Vision Zero." \cite{news}
+At the whole city level, we can't conclude that the New York City Vision Zero initiatives are working.  It is clear that the number of injuries and fatalities are indeed falling, but they had been falling for years before the start of Vision Zero.  And we don't yet have enough data to be able to reach a statistically significant answer as to whether they are now falling faster (or slower) than they had been before.  Given this, it is misleading for Mayor de Blasio to claim that Vision Zero is working as he has done.  Fortunately the DOT agrees, stating earlier this year that "there wasn’t enough data yet to gauge the effectiveness of Vision Zero." \cite{news}
 
-When analyzing neighborhood slow zones in particular, the results were mixed.  Most of the time a slowzone was added to an area, it did not statistiaclly significantly reduce the number of collisions or injuries in that area when compared to the change in the city as a whole.  A couple of exceptions are Sunnyside, Queens and Brooklyn Heights, Brooklyn. Further research is warranted to determine what it is about these two slow zones that sets them apart from the others.  
+When analyzing neighborhood slow zones in particular, the results were mixed.  Most of the time a slow zone  was added to an area, it did not statistically significantly reduce the number of collisions or injuries in that area when compared to the change in the city as a whole.  A couple of exceptions are Sunnyside, Queens and Brooklyn Heights, Brooklyn. Further research is warranted to determine what it is about these two slow zones that sets them apart from the others.
 
-Then again, despite the mixed and inconclusive results, the moral principle of Vision Zero is preventing serious injuries and fatalities \textit{at any cost}.  Based on that idea, if we are sure that our actions won't cause more injuries and fatalities (which we aren't) then even if we can't conclude to an arbitrary statistical signfiicance level that the efforts will work, we should \textit{still} do it on the chance that it does save lives.    
+A major flaw of this analysis is that, while Vision Zero is \textit{primarily} concerned with reducing fatalities, the analysis and results presented are all using just the total number of collisions and injuries and not fatalities.  From the outset the same methodology was being conducted on fatalities as well, but it soon became apparant that the fatality numbers are (fortunately) too low and noisy to provide any statistically significant results.  And while injuries and fatalities are related, a lack of a decrease in injuries does not imply the same lack of decrease in fatalities because the same number of struck pedestrians at 25mph will result in significantly fewer fatalities than at 30mph. 
 
-\clearpage
+Besides just more time and more data, there are several missing pieces of the puzzle that could help better assess the efficacy of Vision Zero.  First, we know based on previous research that driver behavior does not change much when speed limits change.  Through either better instramentation of New York City streets, or from phone GPS data, we could start to understand driver behavior better and determine if it has changed and understand better the situation at the time of a collision.  There is also insufficient data on all the smaller individual infrastucture changes that have been part of Vision Zero, such as speed humps and even traffic light retiming, to asses individual initiatives and determine which ones are the most or least effective.  
+
+Then again, despite the mixed and inconclusive results, the moral principle of Vision Zero is preventing serious injuries and fatalities \textit{at any cost}.  Based on that idea, if we are sure that our actions won't cause more injuries and fatalities (which we aren't) then even if we can't conclude to an arbitrary statistical significance level that the efforts will work, we should \textit{still} do it on the chance that it does save lives.    
+
+%\clearpage
 
 % if have a single appendix:
 %\appendix[Proof of the Zonklar Equations]
@@ -816,14 +833,25 @@ Then again, despite the mixed and inconclusive results, the moral principle of V
 % starts a section numbered zero.)
 %
 
+% use section* for acknowledgment
+\ifCLASSOPTIONcompsoc
+  % The Computer Society usually uses the plural form
+  \section*{Acknowledgments}
+\else
+  % regular IEEE prefers the singular form
+  \section*{Acknowledgment}
+\fi
+
+
+The authors would like to thank their cats Sweetie, Secondi, Kitten, Ubuntu, Collard Green, iOS, Mini Triangle Face, Euclid, Pythagoras, Isosceles and Tetra for all of the support they've provided.
 
 \appendices
-\section{Slowzone Installation Dates}
+\section{Slow zone  Installation Dates}
 \label{sec:appendixa}
-\begin{table}[h]
+\begin{table}[H]
 \centering
 
-\caption*{Approximate year and month that the slowzone was installed.  Dates manually compiled by the author based on news archives. }
+\caption*{Approximate year and month that the slow zone  was installed.  Dates manually compiled by the author based on news archives. }
 
 \begin{tabular}{|l|l|}
 \hline
@@ -855,17 +883,7 @@ Then again, despite the mixed and inconclusive results, the moral principle of V
 
 
 
-% use section* for acknowledgment
-\ifCLASSOPTIONcompsoc
-  % The Computer Society usually uses the plural form
-  \section*{Acknowledgments}
-\else
-  % regular IEEE prefers the singular form
-  \section*{Acknowledgment}
-\fi
 
-
-The authors would like to thank their cats Sweetie, Secondi, Kitten, Ubuntu, Collard Green, iOS, Mini Triangle Face, Euclid, Pythagoras, Isosceles and Tetra for all of the support they've provided.
 
 
 % Can use something like this to put references on a page
