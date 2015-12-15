@@ -558,7 +558,7 @@ Due to the large number of initiatives that make up Vision Zero, separating out 
 
 \begin{table*}[]
 \centering
-\caption{Results from OLS linear regression of the number of accidents and injuries per month for the entire timeframe of the dataset.  Regression was done on the month as a categorical variable and the number of months since July 2012.  The time coefficient gives a measure of how much the monthly total is increasing or decreasing per month.  All results were found to be significant to a .05 significance level.  Total number of accidents and cyclists injured trended upwards since July 2012 while total number of injuries, pedestrians injured and motorists injured trended downwards. }
+\caption{Results from OLS linear regression of the number of accidents and injuries per month from July 2012 - November 2015. }
 \label{tab:timeline}
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline
@@ -612,7 +612,7 @@ But as far as vehicle-vehicle collisions, it's not clear what sort of change we 
 
 The primary data used is the NYPD MotorVehicle Collisions dataset available on NYC Open Data\cite{crashdata}.  The dataset contains about 700,000 incident records from July 2012 through November 2015.  Of the 700,000 records, 600,000 are geolocated with latitude and longitude.  Each record has the number of injuries and fatalities for pedestrians, cyclists, motorists and in total.  It also contains information about the types of vehicles involved in the accidents, and contributing factors such as if the driver was drowsy or failed to yield right-of-way.
 
-Overall the number of injuries is trending downward yet the number of accidents is actually trending upwards. Both also exhibit a strong seasonal trend. This was assessed by running an ordinary least squares (OLS) regression on the accident and injury counts aggregated by month versus the time since July 2012 and a categorical variable for which month it is. Figure \ref{fig:timeline} shows the raw data for accidents and injures over time, as well as the regression model predictions. And Table \ref{tab:timeline} has the regression details. The fatality counts proved too noisy to see any statistically significant patterns over this time frame, so for the following analysis, only total number of collisions and injuries will be used.
+Overall the number of injuries is trending downward yet the number of accidents is actually trending upwards. Both also exhibit a strong seasonal trend. This was assessed by running an ordinary least squares (OLS) regression on the accident and injury counts aggregated by month versus the time since July 2012 and a categorical variable for which month it is. Figure \ref{fig:timeline} shows the raw data for accidents and injures over time, as well as the regression model predictions. And Table \ref{tab:timeline} has coefficients for the time since July 2012. This gives a measure of how much the monthly total is increasing or decreasing per month.  All were found to be significant to a .05 significance level.  The fatality counts proved too noisy to see any statistically significant patterns over this time frame, so for the following analysis, only total number of collisions and injuries will be used.
 
 
 
@@ -635,7 +635,7 @@ The New York City Department of Transportation provides the geographic boundarie
 
 \begin{table*}[]
 \centering
-\caption{Results from before and after regression analysis for total number of collisions and injuries by category. Linear Regression was run on each subset of the data and for each of the subintervals and the confidence intervals were compared from before to after for overlap.  In all cases, the 95\% confidence interval before overlaps with the interval after, meaning we can't conclude any change from before to after. }
+\caption{Results from before and after regression analysis for total number of collisions and injuries by category. }
 \label{tab:ana}
 \begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
@@ -680,7 +680,7 @@ Of all the post Vision Zero intervals, the only one we see have statistically si
 
 \begin{table*}[]
 \centering
-\caption{Results from the Slow Zone analysis.  For each slow zone it shows the date established, number of collisions or injuries before and after that date within the slow zone, and the number of accidents or injuries before and after the same date in the rest of NYC.  The given P-value is from a G-test that the distribution of incidents before and after in the slow zone follows the same distribution as before and after in the rest of NYC.  The statistically significant values to a .05 significance level are colored in red. Rows with 0 values were omitted because the test is not valid for 0 values.}
+\caption{Results from the Slow Zone analysis.  For each slow zone it shows the date established, number of collisions or injuries before and after that date within the slow zone, and the number of accidents or injuries before and after the same date in the rest of NYC.  The statistically significant values to a .05 significance level are colored in red. Rows with 0 values were omitted because the test is not valid for 0 values.}
 \label{tab:sz}
 \begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
@@ -793,7 +793,7 @@ Slow Zone                                   & Date Established            & Cate
 \subsubsection{Methodology}
 
 
-First, all collisions which weren't geolocated with latitude and longitude were dropped, leaving about 600,000 collisions.  Then each one was geospatially joined with the boundaries of the slow zones to see if it happened in one of the boundaries.  If it did, the particular slow zone  was noted.  Then using the approximate dates in Appendix \ref{sec:appendixa}, each of the collisions which happened in a slow zone  was marked as happening either before or after the slow zone  was established.  Therefore for every collision is was labeled as either not happing in a slowzone, happening in an area that would eventually have a slowzone, or happening in a slowzone.
+First, all collisions which weren't geolocated with latitude and longitude were dropped, leaving about 600,000 collisions.  Then each one was geospatially joined with the boundaries of the slow zones to see if it happened in one of the boundaries.  If it did, the particular slow zone  was noted.  Then using the approximate dates in Appendix \ref{sec:appendixa}, each of the collisions which happened in a slow zone  was marked as happening either before or after the slow zone  was established.  Therefore for every collision is was labelled as either not happing in a slow zone, happening in an area that would eventually have a slowzone, or happening in a slowzone.
 
 Two slow zones, Claremont and Mount Eden were both disregarded because they were established before the start of the collisions dataset in July 2012.  Thus there was no way to account for the conditions before those slow zones were created.  For each other slow zone in which there was non-zero data before and after the establishment of the slow zone, the G-test was used to test whether there is a statistically significant difference between the distribution of incidents within the slow zone boundary before and after the slow zone was established with the distribution of the rest of the city before and after that same date.  This was done for total number of accidents as well as each injury category.  A p-value of less than .05 would indicate that the change in the slow zone is statistically significantly different than the change to the city as a whole, but won't by itself indicate whether it is an increase or decrease as compared to the rest of the city.  The results are in Tables \ref{tab:sz} and \ref{tab:sz2}.
 
@@ -806,44 +806,21 @@ Given these limitations, there are still a couple of clear success stories that 
 
 Oddly, though not statistically significant, the number of cyclist injuries in Sunnyside is up compared to the rest of the city after the slow zone  was created.  Anecdotally, speed humps can cause increased danger to cyclists, so further research is warranted to see if there could be a connection there. 
 
-\section{Conclusion}
+\section{Discussion}
 At the whole city level, we can't conclude that the New York City Vision Zero initiatives are working.  It is clear that the number of injuries and fatalities are indeed falling, but they had been falling for years before the start of Vision Zero.  And we don't yet have enough data to be able to reach a statistically significant answer as to whether they are now falling faster (or slower) than they had been before.  Given this, it is misleading for Mayor de Blasio to claim that Vision Zero is working as he has done.  Fortunately the DOT agrees, stating earlier this year that "there wasn't enough data yet to gauge the effectiveness of Vision Zero." \cite{news}
 
 When analyzing neighborhood slow zones in particular, the results were mixed.  Most of the time a slow zone  was added to an area, it did not statistically significantly reduce the number of collisions or injuries in that area when compared to the change in the city as a whole.  A couple of exceptions are Sunnyside, Queens and Brooklyn Heights, Brooklyn. Further research is warranted to determine what it is about these two slow zones that sets them apart from the others.
 
-A major flaw of this analysis is that, while Vision Zero is \textit{primarily} concerned with reducing fatalities, the analysis and results presented are all using just the total number of collisions and injuries and not fatalities.  From the outset the same methodology was being conducted on fatalities as well, but it soon became apparant that the fatality numbers are (fortunately) too low and noisy to provide any statistically significant results.  And while injuries and fatalities are related, a lack of a decrease in injuries does not imply the same lack of decrease in fatalities because the same number of struck pedestrians at 25mph will result in significantly fewer fatalities than at 30mph. So Vision Zero could indeed  be working to reduce fatalities, even if that is not reflected in the number of injuries.
+A major flaw of this analysis is that, while Vision Zero is \textit{primarily} concerned with reducing fatalities, the analysis and results presented are all using just the total number of collisions and injuries and not fatalities.  From the outset the same methodology was being conducted on fatalities as well, but it soon became apparent that the fatality numbers are (fortunately) too low and noisy to provide any statistically significant results.  And while injuries and fatalities are related, a lack of a decrease in injuries does not imply the same lack of decrease in fatalities because the same number of struck pedestrians at 25mph will result in significantly fewer fatalities than at 30mph. So Vision Zero could indeed  be working to reduce fatalities, even if that is not reflected in the number of injuries.
 
-Besides just more time and more data, there are several missing pieces of the puzzle that could help better assess the efficacy of Vision Zero.  First, we know based on previous research that driver behavior does not generally change much when speed limits change.  Through either better instramentation of New York City streets, or from phone GPS data, we could start to understand driver behavior better and determine if it has changed and understand better the situation at the time of a collision.  There is also insufficient data on all the smaller individual infrastucture changes that have been part of Vision Zero, such as speed humps and even traffic light retiming, to asses individual initiatives and determine which ones are the most or least effective.  
+Besides just more time and more data, there are several missing pieces of the puzzle that could help better assess the efficacy of Vision Zero.  First, we know based on previous research that driver behavior does not generally change much when speed limits change.  Through either better instrumentation of New York City streets, or from phone GPS data, we could start to understand driver behavior better and determine if it has changed and understand better the situation at the time of a collision.  There is also insufficient data on all the smaller individual infrastructure changes that have been part of Vision Zero, such as speed humps and even traffic light retiming, to asses individual initiatives and determine which ones are the most or least effective.  
 
 Then again, despite the mixed and inconclusive results, the moral principle of Vision Zero is preventing serious injuries and fatalities \textit{at any cost}.  Based on that idea, if we are sure that our actions won't cause more injuries and fatalities (which we aren't) then even if we can't conclude to an arbitrary statistical significance level that the efforts will work, we should \textit{still} do it on the chance that it does save lives.    
 
-%\clearpage
-
-% if have a single appendix:
-%\appendix[Proof of the Zonklar Equations]
-% or
-%\appendix  % for no appendix heading
-% do not use \section anymore after \appendix, only \section*
-% is possibly needed
-
-% use appendices with more than one appendix
-% then use \section to start each appendix
-% you must declare a \section before using any
-% \subsection or using \label (\appendices by itself
-% starts a section numbered zero.)
-%
-
-% use section* for acknowledgment
-\ifCLASSOPTIONcompsoc
-  % The Computer Society usually uses the plural form
-  \section*{Acknowledgments}
-\else
-  % regular IEEE prefers the singular form
-  \section*{Acknowledgment}
-\fi
+\section{Conclusion}
+After about two years we can't conclude that New York City Vision Zero is working to reduce traffic accidents and injuries at a citywide level.  There just isn't enough data yet to reach a statistically significant conclusion.  Neighborhood slow zones generally haven't proven to work, but several of the recently implemented slow zones appear to be working, and further research is warranted to determine what in particular it is about these slow zones that is helping to reduce injuries and crashes. 
 
 
-The authors would like to thank their cats Sweetie, Secondi, Kitten, Ubuntu, Collard Green, iOS, Mini Triangle Face, Euclid, Pythagoras, Isosceles and Tetra for all of the support they've provided.
 
 \appendices
 \section{Slow zone  Installation Dates}
@@ -880,6 +857,36 @@ The authors would like to thank their cats Sweetie, Secondi, Kitten, Ubuntu, Col
                    Brooklyn Heights &  Oct 2015 \\ \hline
 \end{tabular}
 \end{table}
+
+%\clearpage
+
+% if have a single appendix:
+%\appendix[Proof of the Zonklar Equations]
+% or
+%\appendix  % for no appendix heading
+% do not use \section anymore after \appendix, only \section*
+% is possibly needed
+
+% use appendices with more than one appendix
+% then use \section to start each appendix
+% you must declare a \section before using any
+% \subsection or using \label (\appendices by itself
+% starts a section numbered zero.)
+%
+
+% use section* for acknowledgment
+\ifCLASSOPTIONcompsoc
+  % The Computer Society usually uses the plural form
+  \section*{Acknowledgments}
+\else
+  % regular IEEE prefers the singular form
+  \section*{Acknowledgment}
+\fi
+
+
+The authors would like to thank their cats Sweetie, Secondi, Kitten, Ubuntu, Collard Green, iOS, Mini Triangle Face, Euclid, Pythagoras, Isosceles and Tetra for all of the support they've provided.
+
+
 
 
 
